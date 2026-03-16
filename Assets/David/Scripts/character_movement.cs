@@ -14,8 +14,8 @@ public class character_movement : MonoBehaviour
     private float gravity = -9.81f;
     [SerializeField] private float gravityMultiplier = 3f;
     [HideInInspector] public float velocityY;
-    //[SerializeField] private bool shouldFaceMove = false;
-    [SerializeField] private bool shouldFaceCam = false;
+    
+    
 
     public LayerMask groundLayer;
     public Vector3 boxSize;
@@ -56,7 +56,6 @@ public class character_movement : MonoBehaviour
         right.Normalize();
 
         Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
-        //Vector3 moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
         controller.Move( moveDirection * speed * Time.deltaTime);
 
         
@@ -66,10 +65,14 @@ public class character_movement : MonoBehaviour
 
 
 
+        float CamDirection = Camera.main.transform.rotation.eulerAngles.y;
+       transform.rotation = Quaternion.Euler(0, CamDirection, 0);
 
         invinciblity -= Time.deltaTime;
 
     }
+
+
    
 
     private void ApplyGravity()
