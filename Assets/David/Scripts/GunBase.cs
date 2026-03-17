@@ -1,16 +1,42 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class GunBase : MonoBehaviour
+public abstract class GunBase : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public string gunName;
+    public Sprite gunIcon;
+    public float damage;
+    public float shootCooldown;
+    public bool canShoot = true;
+    public AllControls allControls;
+    
+
+
+    public void ApplyShootInput(InputAction.CallbackContext context)
     {
-        
+        if (context.started)
+        {
+          if (canShoot)
+          {
+            Debug.Log("Shooting " + gunName);
+            StartShootCooldown();
+            ShootGun();
+          }   
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected abstract void ShootGun();
+
+    void StartShootCooldown()
     {
-        
+       StartCoroutine(ShootCooldownCoroutine());
+    }
+
+    IEnumerator ShootCooldownCoroutine()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
     }
 }

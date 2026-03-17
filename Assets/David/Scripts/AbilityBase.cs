@@ -9,6 +9,7 @@ public abstract class AbilityBase : MonoBehaviour
     public Sprite abilityIcon;
     public float cooldownTime;
     public bool canUse = true;
+    
 
     public void TriggerAbility()
     {

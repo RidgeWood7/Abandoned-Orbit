@@ -30,6 +30,8 @@ public class character_movement : MonoBehaviour
 
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public Vector3 _direction;
+
+    
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
