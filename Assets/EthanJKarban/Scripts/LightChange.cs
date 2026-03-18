@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class LightChange : MonoBehaviour
 {
     public Slider slider; // Grabs Slider
