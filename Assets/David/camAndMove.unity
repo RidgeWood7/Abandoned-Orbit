@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 268927416}
   - component: {fileID: 268927415}
   - component: {fileID: 268927414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 306892529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 459125531}
   - component: {fileID: 459125530}
   - component: {fileID: 459125529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 666954000}
   - component: {fileID: 666953999}
   - component: {fileID: 666953998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,6 +883,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 447384267434824770, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
+      propertyPath: dashPower
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 447384267434824770, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
+      propertyPath: dashingDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 447384267434824770, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
+      propertyPath: wallCheck.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2308213376283899484, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
       propertyPath: m_Name
       value: player
@@ -952,7 +964,7 @@ GameObject:
   - component: {fileID: 1604639585}
   - component: {fileID: 1604639584}
   - component: {fileID: 1604639583}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

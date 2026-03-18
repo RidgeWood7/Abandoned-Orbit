@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class DashAbility : AbilityBase
@@ -12,14 +13,18 @@ public class DashAbility : AbilityBase
     public TrailRenderer tr;
     public character_movement playerMovement;
     public AnimationCurve dashCurve;
-    public SphereCollider wallCheckCollider;
+    public Transform Transform;
+    public LayerMask wallCheck;
+
+
 
     public void Awake()
     {
         character = GetComponent<CharacterController>();
         tr = GetComponent<TrailRenderer>();
         playerMovement = GetComponent<character_movement>();
-        wallCheckCollider = GetComponent<SphereCollider>();
+        
+        
     }
 
     protected override void Ability()
@@ -29,16 +34,28 @@ public class DashAbility : AbilityBase
 
     IEnumerator Dash()
     {
+        playerMovement.velocityY = 0;
         isDashing = true;
         playerMovement.enabled = false;
         tr.emitting = true;
         
         Vector3 oldPos = character.transform.position;
-        Vector3 newPos = oldPos + transform.forward * dashPower;
-        
+        Vector3 direction = Camera.main.transform.forward * playerMovement._direction.z + Camera.main.transform.right * playerMovement._direction.x;
+        direction.y = 0;
+        direction.Normalize();
+        Vector3 newPos = oldPos + direction * dashPower;
+
         for (float T = 0; T< dashingDuration; T += Time.deltaTime)
         {
-            character.transform.position = Vector3.Lerp(oldPos, newPos,dashCurve.Evaluate( T / dashingDuration));
+            character.transform.position = Vector3.Lerp(oldPos, newPos, dashCurve.Evaluate( T / dashingDuration));
+
+            if (Physics.Raycast(character.transform.position, direction, 1f, wallCheck))
+            {
+                Debug.Log("Hit wall during dash, stopping dash");
+
+                break;
+            }
+
             yield return new WaitForEndOfFrame();
         }
         
@@ -46,6 +63,6 @@ public class DashAbility : AbilityBase
         playerMovement.enabled = true;
         isDashing = false;
         
-        playerMovement.velocityY = 0;
+        
     }
 }
