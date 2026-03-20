@@ -3,7 +3,7 @@ using UnityEngine.Audio;
 
 public class SetitngsPOPUP : MonoBehaviour
 {
-    private bool PauseSetting = true;
+    private bool PauseSetting = false;
     [SerializeField] AudioMixerGroup mixer;
     public AudioClip buttonSound;
     public GameObject settingsMenu;
@@ -22,6 +22,19 @@ public class SetitngsPOPUP : MonoBehaviour
         //}
     }
 
+    public void Decide()
+    {
+        if  (PauseSetting == true)
+        {
+            Resume();
+
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
     public void Resume()
     {
         settingsMenu.SetActive(false);
@@ -31,8 +44,8 @@ public class SetitngsPOPUP : MonoBehaviour
     }
     void Pause()
     {
-        AudioSource.PlayClipAtPoint(buttonSound, Camera.main.transform.position);
         settingsMenu.SetActive(true);
+        AudioSource.PlayClipAtPoint(buttonSound, Camera.main.transform.position);
         Time.timeScale = 0f;
         PauseSetting = true;
     }
