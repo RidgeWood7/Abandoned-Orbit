@@ -7,10 +7,13 @@ public class EnergyRifle : GunBase
 
     public float shootForce, upwardForce;
 
+    public GameObject energyRifle;
+
 
 
     protected override void ShootGun()
     {
+        
         StartCoroutine(Shoot());
         Debug.Log("Shooting Energy Rifle");
     }
@@ -18,7 +21,7 @@ public class EnergyRifle : GunBase
 
     IEnumerator Shoot()
     {
-        ;
+        
 
         if (Bullet != null)
         {
@@ -34,8 +37,5 @@ public class EnergyRifle : GunBase
 
             yield return new WaitForSeconds(fireRate);
         }
-
-
-
     }
 }
