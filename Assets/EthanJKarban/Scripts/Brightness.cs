@@ -1,31 +1,33 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
 public class Brightness : MonoBehaviour
 {
+    public const string BRIGHTNESS = "Brightness";
+
     public Slider slide;
 
-    public PostProcessProfile lighting;
-    public PostProcessLayer postProcessLayer;
+    public Volume lighting;
 
-    AutoExposure exposed;
     void Start()
     {
-        lighting.TryGetSettings(out exposed);
+        slide.value = PlayerPrefs.GetFloat(BRIGHTNESS, 0f);
+
         AdjustBrightness(slide.value);
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetFloat(BRIGHTNESS, slide.value);
     }
 
     public void AdjustBrightness(float value)
     {
-        if(value != 0)
+        if (lighting.sharedProfile.TryGet(out ColorAdjustments exposed))
         {
-            exposed.keyValue.value = value;
+            exposed.postExposure.Override(value);
         }
-        else        {
-            exposed.keyValue.value = .05f;
-        }
-
     }
 }
