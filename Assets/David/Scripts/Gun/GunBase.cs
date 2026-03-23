@@ -9,13 +9,13 @@ public abstract class GunBase : MonoBehaviour
     public Sprite gunIcon;
 
     public float damage;
-    public float fireRate; //fire rate = seconds between shots
-    
+    public float fireRate;  //fire rate = seconds between shots
+
+
     public float magazineSize;
     public float reloadTime;
     public Image reloadSprite;
     private float bulletsLeft;
-   
     public bool canShoot = true;
     public AllControls allControls;
 
@@ -30,19 +30,26 @@ public abstract class GunBase : MonoBehaviour
 
     public void Update()
     {
-
+        if (bulletsLeft <= 0)
+        {
+            canShoot = false;
+            
+        }
     }
 
     public void ApplyShootInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
+
             if (canShoot)
             {
                 StartShootCooldown();
                 ShootGun();
-                
+
             }
+
+
         }
     }
 
@@ -50,8 +57,8 @@ public abstract class GunBase : MonoBehaviour
 
     void StartShootCooldown()
     {
-        bulletsLeft--;
         
+
         StartCoroutine(ShootCooldownCoroutine());
     }
 
@@ -81,17 +88,11 @@ public abstract class GunBase : MonoBehaviour
         {
             Debug.Log("Reloading...");
             canShoot = false;
-
+            reloadSprite.fillAmount = 0f + reloadTime * Time.deltaTime;
             yield return new WaitForSeconds(reloadTime);
-            reloadTime = reloadSprite.fillAmount = 1 / (reloadTime - Time.deltaTime);
-
-            bulletsLeft = magazineSize;
             canShoot = true;
+            new WaitForSeconds(1f);
             reloadSprite.fillAmount = 0;
         }
-
     }
-
-
-
 }
