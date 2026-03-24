@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -10,30 +12,40 @@ public abstract class GunBase : MonoBehaviour
 
     public float damage;
     public float fireRate;  //fire rate = seconds between shots
+    private float CurrentFireRate;
 
+    public int magazineSize;
+    [HideInInspector] public int bulletsLeft;
+    private int bulletsShot;
 
-    public float magazineSize;
-    public float reloadTime;
+    [InspectorName("Relaod time Per Bullet")]  public float reloadTime;
     public Image reloadSprite;
-    private float bulletsLeft;
-    public bool canShoot = true;
-    public AllControls allControls;
+
+    private bool isHoldingShoot;
+    private bool isReloading;
+
+    private bool CanShoot => bulletsLeft > 0 && !isReloading;
 
     public void Awake()
     {
-        allControls = new AllControls();
-        allControls.Player.Attack.performed += ApplyShootInput;
-        reloadSprite = GetComponent<Image>();
-        reloadTime = reloadTime - Time.deltaTime;
         bulletsLeft = magazineSize;
+        CurrentFireRate = 0;
     }
 
     public void Update()
     {
-        if (bulletsLeft <= 0)
+        CurrentFireRate -= Time.deltaTime;
+
+        if (isHoldingShoot && CanShoot)
         {
-            canShoot = false;
-            
+            if (CurrentFireRate <= 0f)
+            {
+                CurrentFireRate = fireRate; // Reset fire rate timer
+                bulletsLeft--;
+                bulletsShot++;
+
+                ShootGun();
+            }
         }
     }
 
@@ -41,45 +53,22 @@ public abstract class GunBase : MonoBehaviour
     {
         if (context.started)
         {
-
-            if (canShoot)
-            {
-                StartShootCooldown();
-                ShootGun();
-
-            }
-
-
+            isHoldingShoot = true;
+        }
+        else if (context.canceled)
+        {
+            isHoldingShoot = false;
         }
     }
 
     protected abstract void ShootGun();
 
-    void StartShootCooldown()
-    {
-        
-
-        StartCoroutine(ShootCooldownCoroutine());
-    }
-
-    IEnumerator ShootCooldownCoroutine()
-    {
-        canShoot = false;
-        yield return new WaitForSeconds(fireRate);
-        canShoot = true;
-    }
-
-
     public void ApplyReload(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            startReload();
+            StartCoroutine(ReloadCoroutine());
         }
-    }
-    void startReload()
-    {
-        StartCoroutine(ReloadCoroutine());
     }
 
     IEnumerator ReloadCoroutine()
@@ -87,12 +76,26 @@ public abstract class GunBase : MonoBehaviour
         if (bulletsLeft < magazineSize)
         {
             Debug.Log("Reloading...");
-            canShoot = false;
-            reloadSprite.fillAmount = 0f + reloadTime * Time.deltaTime;
-            yield return new WaitForSeconds(reloadTime);
-            canShoot = true;
-            new WaitForSeconds(1f);
+
+            isReloading = true;
+           
+
+            int oldBullets = bulletsLeft;
+            for (float t = 0; t < reloadTime ; t += Time.deltaTime)
+            {
+                reloadSprite.fillAmount = t / reloadTime;
+                bulletsLeft = Mathf.RoundToInt(Mathf.Lerp(oldBullets, magazineSize, t / reloadTime ));
+
+                yield return new WaitForEndOfFrame();
+            }
+
+            isReloading = false;
+
+            yield return new WaitForSeconds(1f);
+
             reloadSprite.fillAmount = 0;
+            bulletsShot = 0;
+            bulletsLeft = magazineSize;
         }
     }
 }
