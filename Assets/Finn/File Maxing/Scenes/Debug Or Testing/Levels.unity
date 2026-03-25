@@ -971,6 +971,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400683819984296223, guid: 54d72dd4809077e40a6bb0d30453ff8f, type: 3}
   m_PrefabInstance: {fileID: 1222426295}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1222727932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.08
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.28280064
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.95917875
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 147.145
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+      propertyPath: m_Name
+      value: SpaceZombie1.04
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 6165319901513549291, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c139cb9b5f483440957c669a7bd86d6, type: 3}
 --- !u!1 &1272772730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1116,7 @@ Transform:
   m_GameObject: {fileID: 1272772730}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03378274, y: 0.95766217, z: -0.12607884, w: 0.2566049}
-  m_LocalPosition: {x: -1, y: 10.3, z: 2.8}
+  m_LocalPosition: {x: 0.14, y: 11.52, z: 7.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1958,3 +2016,4 @@ SceneRoots:
   - {fileID: 1204617956}
   - {fileID: 1319452003}
   - {fileID: 673239864}
+  - {fileID: 1222727932}
