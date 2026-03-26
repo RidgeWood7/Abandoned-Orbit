@@ -6,9 +6,10 @@ public class HealthBar : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
     public Image healthBar;
+    public Image[] healthPoints;
 
-    float health, maxHealth = 100f;
-    float lerpSpeed;
+    public float health, maxHealth = 100f;
+    public float lerpSpeed;
     void Start()
     {
         health = maxHealth;
@@ -17,7 +18,7 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        healthText.text = "health" + health + "%" ;
+        healthText.text = "Health " + health + "%" ;
         if(health > maxHealth) health = maxHealth;
 
         lerpSpeed = 3f * Time.deltaTime;
@@ -29,12 +30,20 @@ public class HealthBar : MonoBehaviour
     void HealthBarFiller()
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health / maxHealth, lerpSpeed);
+        for (int i = 0; i < healthPoints.Length; i++)
+        {
+                       healthPoints[i].enabled = !DisplayHealthPoint(health, i);
+        }
     }
     void ColorChange()
     {
         Color healthColor = Color.Lerp(Color.red, Color.green, health / maxHealth);
 
         healthBar.color = healthColor;
+    }
+    public bool DisplayHealthPoint(float _health, int pointNumber)
+    {
+        return ((pointNumber * 10) >= _health);
     }
     public void Damage(float damagePoints)
     {
