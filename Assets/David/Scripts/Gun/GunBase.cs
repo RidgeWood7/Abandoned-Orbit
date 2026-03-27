@@ -7,16 +7,19 @@ using UnityEngine.UI;
 
 public abstract class GunBase : MonoBehaviour
 {
+    public character_movement player;   
     public string gunName;
     public Sprite gunIcon;
 
-    public float damage;
+    [SerializeField] private float baseDamage;
     public float fireRate;  //fire rate = seconds between shots
     private float CurrentFireRate;
 
-    public int magazineSize;
+    [SerializeField] private int baseMagazineSize;
     [HideInInspector] public int bulletsLeft;
-    private int bulletsShot;
+    public int bulletsShot;
+    
+    
 
     [InspectorName("Relaod time Per Bullet")]  public float reloadTime;
     public Image reloadSprite;
@@ -25,15 +28,24 @@ public abstract class GunBase : MonoBehaviour
     private bool isReloading;
 
     private bool CanShoot => bulletsLeft > 0 && !isReloading;
+    public int MagazineSize => baseMagazineSize + Stats.Instance.ammoUp;
+    public float Damage => baseDamage * Stats.Instance.damageMultiplier;
 
     public void Awake()
     {
-        bulletsLeft = magazineSize;
+        player = FindFirstObjectByType<character_movement>();
+       
+    }
+    private void Start()
+    {
+        bulletsLeft = MagazineSize;
         CurrentFireRate = 0;
     }
 
     public void Update()
     {
+       
+
         CurrentFireRate -= Time.deltaTime;
 
         if (isHoldingShoot && CanShoot)
@@ -53,7 +65,9 @@ public abstract class GunBase : MonoBehaviour
     {
         if (context.started)
         {
+                       
             isHoldingShoot = true;
+            
         }
         else if (context.canceled)
         {
@@ -73,7 +87,7 @@ public abstract class GunBase : MonoBehaviour
 
     IEnumerator ReloadCoroutine()
     {
-        if (bulletsLeft < magazineSize)
+        if (bulletsLeft < MagazineSize)
         {
             Debug.Log("Reloading...");
 
@@ -84,7 +98,7 @@ public abstract class GunBase : MonoBehaviour
             for (float t = 0; t < reloadTime ; t += Time.deltaTime)
             {
                 reloadSprite.fillAmount = t / reloadTime;
-                bulletsLeft = Mathf.RoundToInt(Mathf.Lerp(oldBullets, magazineSize, t / reloadTime ));
+                bulletsLeft = Mathf.RoundToInt(Mathf.Lerp(oldBullets, MagazineSize, t / reloadTime ));
 
                 yield return new WaitForEndOfFrame();
             }
@@ -95,7 +109,18 @@ public abstract class GunBase : MonoBehaviour
 
             reloadSprite.fillAmount = 0;
             bulletsShot = 0;
-            bulletsLeft = magazineSize;
+            bulletsLeft = MagazineSize;
+        }
+    }
+
+    private void DamageEnemy(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            
+
+            // Handle collision with enemy
+            Debug.Log("Collided with Enemy!");
         }
     }
 }

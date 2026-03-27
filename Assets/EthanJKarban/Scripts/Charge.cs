@@ -49,7 +49,7 @@ public class Charge : MonoBehaviour
             chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, cur_cooldown / max_cooldown, lerpChargeSpeed * Time.deltaTime);
             yield return null;
         }
-        gun.bulletsLeft = gun.magazineSize;
+        gun.bulletsLeft = gun.MagazineSize;
         cur_cooldown = 0f;
     }
 }
