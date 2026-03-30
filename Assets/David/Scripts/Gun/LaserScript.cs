@@ -4,10 +4,10 @@ public class LaserScript : MonoBehaviour
 {
 
     public LineRenderer line;
-    public BulletScript bullet;
+    
     private void Start()
     {
-        bullet = GetComponent<BulletScript>();
+       
         line = GetComponent<LineRenderer>();
     }
 
@@ -35,9 +35,9 @@ public class LaserScript : MonoBehaviour
     }
     public void IgnoreBulletCollider(Collider collider)
     {
-        if(collider.CompareTag("bullet"))
+        if (gameObject.CompareTag("bullet"))
         {
-            Physics.IgnoreCollision(bullet.GetComponent<Collider>(), collider);
+            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collider);
         }
     }
 
