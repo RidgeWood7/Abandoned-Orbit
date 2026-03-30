@@ -18,5 +18,7 @@ public class ammoCount : MonoBehaviour
     {
         ammoAmount = gun.bulletsLeft;
         ammoText.text = ammoAmount.ToString("Ammo:" + ammoAmount);
+
+        //var damage = damage * Stats.Instance.damageMultiplier;
     }
 }
