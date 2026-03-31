@@ -7,20 +7,44 @@ using UnityEngine.InputSystem;
 public class DetectPlayer : MonoBehaviour
 {
     public GameObject buttonPrompt;
+    public float radius = 5f;
+    public GameObject itemSelectScreen;
+    private bool playerInRange = false;
 
-  
-   public void OnTriggerEnter(Collider other)
+    public void Update()
     {
-        if (other.CompareTag("Player"))
-        {
-            buttonPrompt.SetActive(true);
-        }
+        SphereDetection();
+       
     }
-    private void OnTriggerExit(Collider other)
+
+    public void Interaction(InputAction.CallbackContext context)
     {
-        if (other.CompareTag("Player"))
+        if(context.performed && playerInRange)
         {
-            buttonPrompt.SetActive(false);
+            itemSelectScreen.SetActive(true);
+            Time.timeScale = 0f; // Pause the game
         }
+
+    }
+
+    public void SphereDetection()
+    {
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+        
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Player"))
+            {
+                playerInRange = true;
+                break;
+            }
+        }
+        buttonPrompt.SetActive(playerInRange);
+    }
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
