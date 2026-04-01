@@ -1,0 +1,23 @@
+VisualElement {
+}
+
+Button {
+    font-size: 50%;
+    background-color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&guid=3efb2cedf5b6b21459151a9a630a78ce&type=3#PressStart2P-Regular");
+    -unity-text-align: middle-center;
+    width: 278px;
+    align-items: flex-start;
+    align-self: center;
+    height: 107px;
+    justify-content: center;
+    border-top-width: 44px;
+    border-right-width: 12px;
+    border-bottom-width: 12px;
+    border-left-width: 12px;
+    border-top-left-radius: -772px;
+    border-top-right-radius: -234px;
+    border-bottom-right-radius: 98px;
+    border-bottom-left-radius: 98px;
+    -unity-text-auto-size: best-fit 0 2083px;
+}

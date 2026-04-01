@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/EthanJKarban/Scenes/Test1Style.uss?fileID=7433441132597879392&amp;guid=a624b5c9c2701194a8f75f716450a9b7&amp;type=3#Test1Style"/>
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; background-color: rgba(108, 108, 108, 0.56); height: 380px; width: 3840px; border-bottom-color: rgba(89, 89, 89, 0.5); border-bottom-width: 24px;"/>
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: column-reverse; flex-basis: auto; color: rgb(27, 27, 27); background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0.3; background-color: rgba(149, 149, 149, 0.62); flex-basis: 0; flex-shrink: 0; flex-direction: row; height: auto; border-top-color: rgba(96, 96, 96, 0.69); border-top-width: 15px; border-bottom-width: 15px; border-bottom-color: rgba(84, 84, 84, 0.74); background-size: 260% 100%; justify-content: space-around; align-items: center; -unity-text-align: upper-left; background-position-x: center; -unity-background-scale-mode: stretch-to-fill; background-position-y: center; align-self: stretch; align-content: auto;">
+            <ui:Button text="Quit" style="font-size: 25px;"/>
+            <ui:Button text="Start" style="transform-origin: bottom; translate: 0 -1px; font-size: 25px;"/>
+            <ui:Button text="Settings" style="font-size: 25px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Label text="Abandoned Orbit" name="Title" style="position: absolute; top: 64px; width: 892px; height: 248px; font-size: 50px; -unity-font-definition: url(&quot;project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=3efb2cedf5b6b21459151a9a630a78ce&amp;type=3#PressStart2P-Regular&quot;); -unity-font-style: normal; align-items: stretch; justify-content: flex-start; left: 32px; align-self: center; -unity-text-align: upper-center; color: rgb(255, 255, 255);"/>
+    <ui:Button text="Credits&#10;" style="position: absolute; top: -3px; left: -3px; height: 76px; width: 132px;"/>
+</ui:UXML>
