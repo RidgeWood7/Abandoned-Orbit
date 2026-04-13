@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/EthanJKarban/Tss.uss?fileID=7433441132597879392&amp;guid=b446c879b86888c4b83c8afd9f104d52&amp;type=3#Tss"/>
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; align-items: flex-end;">
+        <ui:VisualElement name="VisualElement" class="menu" style="flex-grow: 1;">
+            <ui:Label text="Abandoned Orbit" name="Title" style="font-size: 16px;"/>
+            <ui:Button text="Button" class="unity-button"/>
+            <ui:Button text="Button" class="unity-button"/>
+            <ui:Button text="Button" name="Button" class="unity-button"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
