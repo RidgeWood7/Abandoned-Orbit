@@ -4,6 +4,7 @@ public class LaserScript : MonoBehaviour
 {
 
     public LineRenderer line;
+
     
     private void Start()
     {

@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject button;
 
-    // Update is called once per frame
-    void Update()
+    public void CloseWindow()
     {
-        
+        button.SetActive(false);
+        Time.timeScale = 1f; // Resume the game
     }
 }

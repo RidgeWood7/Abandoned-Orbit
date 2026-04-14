@@ -1,5 +1,6 @@
 using System.Threading;
 using TMPro;
+using Unity.Jobs;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,44 +8,43 @@ using UnityEngine.InputSystem;
 public class DetectPlayer : MonoBehaviour
 {
     public GameObject buttonPrompt;
-    public float radius = 5f;
     public GameObject itemSelectScreen;
     private bool playerInRange = false;
 
     public void Update()
     {
-        SphereDetection();
-       
+        playerInRange = buttonPrompt.activeSelf;
     }
 
     public void Interaction(InputAction.CallbackContext context)
     {
-        if(context.performed && playerInRange)
+        if (playerInRange == true && context.performed)
         {
             itemSelectScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None; // Unlock the cursor
             Time.timeScale = 0f; // Pause the game
         }
 
     }
 
-    public void SphereDetection()
+    public void OnTriggerEnter(Collider other)
     {
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-        
-        foreach (var hitCollider in hitColliders)
+        if (other.CompareTag("Player"))
         {
-            if (hitCollider.CompareTag("Player"))
-            {
-                playerInRange = true;
-                break;
-            }
+            buttonPrompt.SetActive(true);
+            playerInRange = true;
         }
-        buttonPrompt.SetActive(playerInRange);
+
+
     }
-    public void OnDrawGizmosSelected()
+    public void OnTriggerExit(Collider other)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        if (other.CompareTag("Player"))
+        {
+            buttonPrompt.SetActive(false);
+            playerInRange = false;
+        }
+
     }
 }
