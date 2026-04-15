@@ -5,7 +5,6 @@ public class ammoCount : MonoBehaviour
 {
     private GunBase gun;
     public TextMeshProUGUI ammoText;
-    private int ammoAmount;
     
 
     void Start()
@@ -16,8 +15,7 @@ public class ammoCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ammoAmount = gun.bulletsLeft;
-        ammoText.text = ammoAmount.ToString("Ammo:" + ammoAmount);
+        ammoText.text = string.Format("Ammo: {0}", gun.bulletsLeft);
 
         //var damage = damage * Stats.Instance.damageMultiplier;
     }
