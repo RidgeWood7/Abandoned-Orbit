@@ -9,16 +9,18 @@ public class DetectPlayer : MonoBehaviour
 {
     public GameObject buttonPrompt;
     public GameObject itemSelectScreen;
-    private bool playerInRange = false;
+    [HideInInspector] public bool playerInRange;
+   
 
     public void Update()
     {
         playerInRange = buttonPrompt.activeSelf;
+        
     }
 
     public void Interaction(InputAction.CallbackContext context)
     {
-        if (playerInRange == true && context.performed)
+        if (playerInRange = true && context.performed)
         {
             itemSelectScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None; // Unlock the cursor

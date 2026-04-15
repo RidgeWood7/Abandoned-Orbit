@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DamageUp : PowerUpBase
 {
-    public float damageMultiplier;
+    public float damageMultiplier = 1.5f;
 
     protected override void Awake()
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Ammoup : PowerUpBase
 {
-    public int ammoUp;
+    public int ammoUp =5;
 
     protected override void Awake()
     {
