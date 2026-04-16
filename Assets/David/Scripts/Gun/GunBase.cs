@@ -104,23 +104,14 @@ public abstract class GunBase : MonoBehaviour
             }
 
             isReloading = false;
-
-            yield return new WaitForSeconds(1f);
+            bulletsLeft = MagazineSize;
+            yield return new WaitForSeconds(.3f);
 
             reloadSprite.fillAmount = 0;
             bulletsShot = 0;
-            bulletsLeft = MagazineSize;
+           
         }
     }
 
-    private void DamageEnemy(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            
-
-            // Handle collision with enemy
-            Debug.Log("Collided with Enemy!");
-        }
-    }
+   
 }

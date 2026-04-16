@@ -4,6 +4,7 @@ public class BulletScript : MonoBehaviour
 {
     public float lifetime = 5f;
     public Collider bulletCollider;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,9 +28,13 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject || collision.gameObject.CompareTag("Enemy"))
+       
+        GunBase gunBase = FindFirstObjectByType<GunBase>();
+        ShrimpleENEMY enemy = collision.gameObject.GetComponent<ShrimpleENEMY>();
+        if (enemy != null)
         {
-            Destroy(gameObject);
-        }
+            enemy.TakeDamage(gunBase.Damage);
+        } 
+        Destroy(gameObject);
     }
 }

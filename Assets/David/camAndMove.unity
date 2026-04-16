@@ -140,13 +140,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2858188426790620117, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
+      propertyPath: timer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858188426790620117, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858188426790620117, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
       propertyPath: isDead
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858188426790620117, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
+      propertyPath: EHealth
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2858188426790620117, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
       propertyPath: Playerpos
       value: 
       objectReference: {fileID: 1976299965}
+    - target: {fileID: 2858188426790620117, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
+      propertyPath: MaxEHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2858188426790620117, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
+      propertyPath: attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5080239151322987139, guid: 1ca95e3108e24ad4daf5fddc5eb458f2, type: 3}
       propertyPath: m_Name
       value: enemy
@@ -2488,6 +2508,10 @@ PrefabInstance:
       propertyPath: wallCheck.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 2140732832543869990, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2308213376283899484, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
       propertyPath: m_Name
       value: PLAYER
@@ -2609,8 +2633,16 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6319267348839858020, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319267348839858020, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
       propertyPath: jumpHeight
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319267348839858020, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
+      propertyPath: currentHealth
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6319267348839858020, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
       propertyPath: cameraTransform

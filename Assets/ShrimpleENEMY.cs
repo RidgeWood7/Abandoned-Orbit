@@ -9,6 +9,10 @@ public class ShrimpleENEMY : MonoBehaviour
     public float EHealth;
     UnityEngine.AI.NavMeshAgent agent;
     public bool isDead = false;
+    public float timer;
+    public float damage;
+    public float attackCooldown;
+
 
 
     public bool isAttacking;
@@ -21,32 +25,61 @@ public class ShrimpleENEMY : MonoBehaviour
     }
     void Update()
     {
-       
+     
 
 
         HealthBar.value = EHealth;
         HealthBar.maxValue = MaxEHealth;
         agent.destination = Playerpos.position;
-        if (EHealth < 0  )
-        {
-            isDead = true;
-            Destroy(gameObject);
-
-        }
+        
 
 
     }
-   public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
+
+        
         //collison and attacking
         if (collision.gameObject.CompareTag("Player"))
         {
+            timer += Time.deltaTime;
+            if (timer >= attackCooldown)
+            {
+                DealDamage();
+                timer = 0f;
+            }
             isAttacking = true;
+
         }
         else
         {
             isAttacking = false;
         }
+     
 
+
+    }
+
+    public void DealDamage()
+    {
+       character_movement player = FindFirstObjectByType<character_movement>();
+        player.TakeDamage(damage);
+    }   
+    public void TakeDamage(float damage)
+    {
+        EHealth -= damage;
+        if (EHealth < 0)
+        {
+            isDead = true;
+            Die();
+
+        }
+    }
+    void Die()
+    {
+        // Play death animation and/or effects here
+
+        Destroy(gameObject);
+        
     }
 }
