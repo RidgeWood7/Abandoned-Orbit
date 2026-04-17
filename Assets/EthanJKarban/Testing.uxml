@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/EthanJKarban/Tss.uss?fileID=7433441132597879392&amp;guid=b446c879b86888c4b83c8afd9f104d52&amp;type=3#Tss"/>
     <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; align-items: flex-end; display: flex; visibility: visible; background-size: 100% 100%; background-color: rgba(0, 0, 0, 0); border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0);">
-        <ui:VisualElement name="VisualElement" class="menu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.33); margin-top: 0; margin-right: -4px;">
+        <ui:VisualElement name="VisualElement" enabled="true" picking-mode="Position" class="menu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.33); margin-top: 0; margin-right: -4px; display: flex;">
             <ui:Label text="Abandoned Orbit" name="Title" style="font-size: 23px;"/>
             <ui:Button text="Start" name="PlayButton" class="unity-button"/>
             <ui:Button text="Options" name="OptionsButton" class="unity-button"/>

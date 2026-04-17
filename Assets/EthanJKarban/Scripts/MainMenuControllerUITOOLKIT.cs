@@ -6,12 +6,15 @@ public class MainMenuControllerUITOOLKIT : MonoBehaviour
 {
 
     //public VisualElement SettingsPannel;
+    public SetitngsPOPUP settingsPopup;
 
+    public GameObject settingsMenu;
     public VisualElement ui;
     public Button playButton;
     public Button optionsButton;
     public Button quitButton;
 
+    public AudioClip buttonSound;
     public string sceneName = "Titles";
 
     public void Awake()
@@ -35,6 +38,8 @@ public class MainMenuControllerUITOOLKIT : MonoBehaviour
     private void OnPlayButtonClicked()
     {
         gameObject.SetActive(false);
+        AudioSource.PlayClipAtPoint(buttonSound, Camera.main.transform.position);
+        Time.timeScale = 1f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(sceneName);
         // SettingsPannel.visible = true;
 
@@ -42,7 +47,21 @@ public class MainMenuControllerUITOOLKIT : MonoBehaviour
     private void OnOptionsButtonClicked()
     {
         Debug.Log("Options button clicked");
-        //SettingsPannel.SetActivePseudoState(true);
+        
+
+        if (settingsMenu == true)
+        {
+            settingsMenu.SetActive(false);
+        }
+        if (settingsMenu == false)
+        {
+            settingsMenu.SetActive(true);
+        }
+        else
+        {
+            settingsMenu.SetActive(true);
+        }
+
     }
 
     private void OnQuitButtonClicked()
