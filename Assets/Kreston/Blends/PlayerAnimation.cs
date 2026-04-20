@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,10 +10,15 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private Animator gunAnimator;
     public bool coolingShot = false;
     public bool coolingReload = false;
+    
     [Header("Shooting and Reloading")]
     [SerializeField] private float shootSpeedMult = 1f;
     [SerializeField] private float reloadSpeedMult = 1f;
     [SerializeField] private bool isAutomatic;
+
+    [Header("Particles")]
+    [SerializeField] private List<ParticleSystem> shootParticles = new();
+    [SerializeField] private List<ParticleSystem> reloadParticles = new();
 
     private void Update()
     {
@@ -37,6 +43,14 @@ public class PlayerAnimation : MonoBehaviour
             {
                 armsAnimator.SetTrigger("Shoot");
                 gunAnimator.SetTrigger("Shoot");
+
+                if (shootParticles != null && shootParticles.Count > 0)
+                {
+                    foreach (var item in shootParticles)
+                    {
+                        item.Play();
+                    }
+                }
             }
         }
         else
@@ -45,6 +59,14 @@ public class PlayerAnimation : MonoBehaviour
             {
                 armsAnimator.SetTrigger("Shoot");
                 gunAnimator.SetTrigger("Shoot");
+
+                if (shootParticles != null && shootParticles.Count > 0)
+                {
+                    foreach (var item in shootParticles)
+                    {
+                        item.Play();
+                    }
+                }
             }
         }
 
@@ -56,6 +78,14 @@ public class PlayerAnimation : MonoBehaviour
         {
             armsAnimator.SetTrigger("Reload");
             gunAnimator.SetTrigger("Reload");
+
+            if (reloadParticles != null && reloadParticles.Count > 0)
+            {
+                foreach (var item in reloadParticles)
+                {
+                    item.Play();
+                }
+            }
         }
     }
 }
