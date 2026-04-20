@@ -9,9 +9,12 @@ public class ShrimpleENEMY : MonoBehaviour
     public float EHealth;
     UnityEngine.AI.NavMeshAgent agent;
     public bool isDead = false;
-    public float timer;
-    public float damage;
-    public float attackCooldown;
+    private float timer;
+    public float basedamage;
+    [SerializeField] private float oldattackCooldown;
+
+    public float damage => basedamage * EnemyStats.instance.damageMultiplier;
+    public float attackCooldown => oldattackCooldown - EnemyStats.instance.attackSpeedUp;
 
 
 
@@ -45,10 +48,13 @@ public class ShrimpleENEMY : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= attackCooldown)
             {
-                DealDamage();
-                timer = 0f;
+                isAttacking = true;
+                DealDamage(); 
+               
+                timer = 0f; 
+              
             }
-            isAttacking = true;
+           
 
         }
         else

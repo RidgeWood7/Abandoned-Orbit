@@ -147,13 +147,4 @@ public class character_movement : MonoBehaviour
         Destroy(gameObject);
         Debug.Log("Player has died.");
     }
-
-    
-    
-
-
 }
-
-
-
-   
