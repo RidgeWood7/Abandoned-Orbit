@@ -14,7 +14,7 @@ public class ShrimpleENEMY : MonoBehaviour
     [SerializeField] private float oldattackCooldown;
 
     public float damage => basedamage * EnemyStats.instance.damageMultiplier;
-    public float attackCooldown => oldattackCooldown - EnemyStats.instance.attackSpeedUp;
+    public float attackCooldown => oldattackCooldown + EnemyStats.instance.attackSpeedUp;
 
 
 
@@ -34,20 +34,20 @@ public class ShrimpleENEMY : MonoBehaviour
         HealthBar.value = EHealth;
         HealthBar.maxValue = MaxEHealth;
         agent.destination = Playerpos.position;
-        
+        timer += Time.deltaTime;
 
 
     }
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
-
-        
-        //collison and attacking
+         //collison and attacking
         if (collision.gameObject.CompareTag("Player"))
         {
-            timer += Time.deltaTime;
+            
+            
             if (timer >= attackCooldown)
             {
+                Debug.Log("Collided with player");
                 isAttacking = true;
                 DealDamage(); 
                
@@ -62,9 +62,8 @@ public class ShrimpleENEMY : MonoBehaviour
             isAttacking = false;
         }
      
-
-
     }
+  
 
     public void DealDamage()
     {
@@ -74,7 +73,7 @@ public class ShrimpleENEMY : MonoBehaviour
     public void TakeDamage(float damage)
     {
         EHealth -= damage;
-        if (EHealth < 0)
+        if (EHealth <= 0)
         {
             isDead = true;
             Die();
