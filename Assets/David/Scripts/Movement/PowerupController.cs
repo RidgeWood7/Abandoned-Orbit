@@ -19,4 +19,9 @@ public class PowerupController : MonoBehaviour
 		gameObject.AddComponent<DamageUp>();
 		enemyPrefab.AddComponent<DamageUp>();
     }
+	public void AddHealthPowerup()
+	{
+		gameObject.AddComponent<HealthUp>();
+		enemyPrefab.AddComponent<HealthUp>();
+    }
 }
