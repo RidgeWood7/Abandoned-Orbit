@@ -9,9 +9,12 @@ public class ShrimpleENEMY : MonoBehaviour
     public float EHealth;
     UnityEngine.AI.NavMeshAgent agent;
     public bool isDead = false;
-    public float timer;
-    public float damage;
-    public float attackCooldown;
+    private float timer;
+    public float basedamage;
+    [SerializeField] private float oldattackCooldown;
+
+    public float damage => basedamage * EnemyStats.instance.damageMultiplier;
+    public float attackCooldown => oldattackCooldown + EnemyStats.instance.attackSpeedUp;
 
 
 
@@ -31,24 +34,27 @@ public class ShrimpleENEMY : MonoBehaviour
         HealthBar.value = EHealth;
         HealthBar.maxValue = MaxEHealth;
         agent.destination = Playerpos.position;
-        
+        timer += Time.deltaTime;
 
 
     }
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
-
-        
-        //collison and attacking
+         //collison and attacking
         if (collision.gameObject.CompareTag("Player"))
         {
-            timer += Time.deltaTime;
+            
+            
             if (timer >= attackCooldown)
             {
-                DealDamage();
-                timer = 0f;
+                Debug.Log("Collided with player");
+                isAttacking = true;
+                DealDamage(); 
+               
+                timer = 0f; 
+              
             }
-            isAttacking = true;
+           
 
         }
         else
@@ -56,9 +62,8 @@ public class ShrimpleENEMY : MonoBehaviour
             isAttacking = false;
         }
      
-
-
     }
+  
 
     public void DealDamage()
     {
@@ -68,7 +73,7 @@ public class ShrimpleENEMY : MonoBehaviour
     public void TakeDamage(float damage)
     {
         EHealth -= damage;
-        if (EHealth < 0)
+        if (EHealth <= 0)
         {
             isDead = true;
             Die();

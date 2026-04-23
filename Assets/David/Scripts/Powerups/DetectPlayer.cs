@@ -9,7 +9,7 @@ public class DetectPlayer : MonoBehaviour
 {
     public GameObject buttonPrompt;
     public GameObject itemSelectScreen;
-    [HideInInspector] public bool playerInRange;
+    public bool playerInRange;
    
 
     public void Update()
@@ -20,7 +20,7 @@ public class DetectPlayer : MonoBehaviour
 
     public void Interaction(InputAction.CallbackContext context)
     {
-        if (playerInRange = true && context.performed)
+        if (playerInRange && context.performed)
         {
             itemSelectScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None; // Unlock the cursor

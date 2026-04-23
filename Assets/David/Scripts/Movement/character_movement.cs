@@ -22,8 +22,10 @@ public class character_movement : MonoBehaviour
     public float groundCheckDistance;
 
     public float currentHealth;
-    public float maxHealth;
+    public float baseMaxHealth;
 
+
+    public float maxHealth => baseMaxHealth + Stats.Instance.healthPointsUp;
 
     private float invinciblity;
     public float invincibiltyTime;
@@ -147,13 +149,4 @@ public class character_movement : MonoBehaviour
         Destroy(gameObject);
         Debug.Log("Player has died.");
     }
-
-    
-    
-
-
 }
-
-
-
-   
