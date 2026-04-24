@@ -565,7 +565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3464437216661662777, guid: 454a93fb8f9d51948b88c6f6897485fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.254
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 3464437216661662777, guid: 454a93fb8f9d51948b88c6f6897485fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -983,11 +983,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1976299973}
         m_TargetAssemblyTypeName: PowerupController, Assembly-CSharp
-        m_MethodName: AddDamagePowerup
-        m_Mode: 1
+        m_MethodName: AddPowerup
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 4c2fbbd5f79794746b6872df4fa7eb9d, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Powerup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1681,11 +1681,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1976299973}
         m_TargetAssemblyTypeName: PowerupController, Assembly-CSharp
-        m_MethodName: AddAmmoPowerup
-        m_Mode: 1
+        m_MethodName: AddPowerup
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: e66ecb85b33f74a4ca24114285d1fb30, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Powerup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2301,6 +2301,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2308213376283899484, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1976299981}
+    - targetCorrespondingSourceObject: {fileID: 2308213376283899484, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1976299989}
   m_SourcePrefab: {fileID: 100100000, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
 --- !u!1 &1604639581
 GameObject:
@@ -2784,11 +2787,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1976299973}
         m_TargetAssemblyTypeName: PowerupController, Assembly-CSharp
-        m_MethodName: AddHealthPowerup
-        m_Mode: 1
+        m_MethodName: AddPowerup
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: bd3739305c7511f438e9433c8bab8796, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Powerup, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2832,6 +2835,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963001526}
   m_CullTransparentMesh: 1
+--- !u!1 &1968951917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968951919}
+  - component: {fileID: 1968951918}
+  m_Layer: 0
+  m_Name: Enemy Stats Multiplier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1968951918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968951917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f3e8e6a7bb1754d90d007fed4b6c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStatsInstance
+  stats:
+    damageMultiplier: 1
+    speedMultiplier: 1
+    healthPointsUp: 0
+    attackSpeedUp: 0
+    ammoUp: 0
+--- !u!4 &1968951919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968951917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.15967, y: -0, z: -3.14447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976299946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2308213376283899484, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
@@ -2846,13 +2899,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1976299946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d761b4521042f0c408ad9559ee0668c2, type: 3}
+  m_Script: {fileID: 11500000, guid: e7fef08924461e849ae6395a438ae3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stats
-  damageMultiplier: 1
-  speedMultiplier: 1
-  healthPointsUp: 0
-  ammoUp: 0
+  stats:
+    damageMultiplier: 1
+    speedMultiplier: 1
+    healthPointsUp: 0
+    attackSpeedUp: 0
+    ammoUp: 0
 --- !u!4 &1976299965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8106927583050172381, guid: 4b4b9d7bc04c19446adf3d18ad88b0a3, type: 3}
@@ -2893,6 +2948,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1976299989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976299946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94ffa9f48d9696468ecb649aecf80d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpInstance
+  powerups: []
 --- !u!1001 &6557921434278925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3192,7 +3260,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3817812478573952801, guid: c51f920562ba9bd4fbe9ebc272d6aec6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3401,3 +3470,4 @@ SceneRoots:
   - {fileID: 1671175684}
   - {fileID: 1903063450}
   - {fileID: 6010489398311263805}
+  - {fileID: 1968951919}
