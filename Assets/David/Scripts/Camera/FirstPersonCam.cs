@@ -27,6 +27,10 @@ public class FirstPersonCam : MonoBehaviour
         camPanTilt = GetComponent<CinemachinePanTilt>();
         controls = new AllControls();
         controls.Enable();
+        
+    }
+    private void Start()
+    {
         Cursor.lockState = CursorLockMode.Locked;
     }
 

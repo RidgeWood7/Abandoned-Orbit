@@ -13,8 +13,8 @@ public class ShrimpleENEMY : MonoBehaviour
     public float basedamage;
     [SerializeField] private float oldattackCooldown;
 
-    public float damage => basedamage * EnemyStats.instance.damageMultiplier;
-    public float attackCooldown => oldattackCooldown + EnemyStats.instance.attackSpeedUp;
+    public float damage => basedamage * EnemyStatsInstance.Instance.stats.damageMultiplier;
+    public float attackCooldown => oldattackCooldown + EnemyStatsInstance.Instance.stats.attackSpeedUp;
 
 
 
@@ -36,6 +36,7 @@ public class ShrimpleENEMY : MonoBehaviour
         agent.destination = Playerpos.position;
         timer += Time.deltaTime;
 
+        HealthBar.transform.LookAt(Playerpos);
 
     }
     private void OnTriggerStay(Collider collision)

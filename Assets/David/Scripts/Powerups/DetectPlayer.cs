@@ -18,15 +18,9 @@ public class DetectPlayer : MonoBehaviour
     public bool playerInRange;
    
 
-    public void Update()
-    {
-        playerInRange = buttonPrompt.activeSelf;
-        
-    }
-
     public void Interaction(InputAction.CallbackContext context)
     {
-        if (playerInRange && context.performed)
+        if (playerInRange)
         {
             itemSelectScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None; // Unlock the cursor
@@ -45,7 +39,7 @@ public class DetectPlayer : MonoBehaviour
             buttonPrompt.SetActive(true);
             playerInRange = true;
 
-            current = other;
+            current = GetComponent<Collider>();
         }
 
 
@@ -57,7 +51,7 @@ public class DetectPlayer : MonoBehaviour
             buttonPrompt.SetActive(false);
             playerInRange = false;
 
-            current = null;
+           
         }
 
     }
