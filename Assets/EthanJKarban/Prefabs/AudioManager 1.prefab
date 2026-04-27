@@ -410,7 +410,7 @@ MonoBehaviour:
   fire: {fileID: 8300000, guid: d02c6a2156ee9b146b97c4da8162a5d1, type: 3}
   walk: {fileID: 8300000, guid: 7a9693c1275acae4bb589babed7d3c9c, type: 3}
   kill: {fileID: 8300000, guid: 34b1d637b0397ec46b0f6ad87a35d6c0, type: 3}
-  doorOpened: {fileID: 0}
-  Button: {fileID: 0}
-  Charge: {fileID: 0}
-  HealAndPowerUp: {fileID: 0}
+  doorOpened: {fileID: 8300000, guid: 7ebda051e0a84a744b394372b8533e0f, type: 3}
+  Button: {fileID: 8300000, guid: 7d950ff70b8967c438109a5c9937882a, type: 3}
+  Charge: {fileID: 8300000, guid: 98ddb50416dad7d4bb9b16462f52c75f, type: 3}
+  HealAndPowerUp: {fileID: 8300000, guid: 7ef326354e21ed4479745a5812b11a74, type: 3}
