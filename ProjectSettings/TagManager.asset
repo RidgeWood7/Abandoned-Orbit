@@ -7,7 +7,6 @@ TagManager:
   - bullet
   - Interactable
   - Enemy
-  - Audio
   layers:
   - Default
   - TransparentFX
