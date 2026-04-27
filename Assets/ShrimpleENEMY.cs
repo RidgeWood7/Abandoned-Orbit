@@ -9,13 +9,6 @@ public class ShrimpleENEMY : MonoBehaviour
     public float EHealth;
     UnityEngine.AI.NavMeshAgent agent;
     public bool isDead = false;
-    private float timer;
-    public float basedamage;
-    [SerializeField] private float oldattackCooldown;
-
-    public float damage => basedamage * EnemyStatsInstance.Instance.stats.damageMultiplier;
-    public float attackCooldown => oldattackCooldown + EnemyStatsInstance.Instance.stats.attackSpeedUp;
-
 
 
     public bool isAttacking;
@@ -28,64 +21,32 @@ public class ShrimpleENEMY : MonoBehaviour
     }
     void Update()
     {
-     
+       
 
 
         HealthBar.value = EHealth;
         HealthBar.maxValue = MaxEHealth;
         agent.destination = Playerpos.position;
-        timer += Time.deltaTime;
+        if (EHealth < 0  )
+        {
+            isDead = true;
+            Destroy(gameObject);
 
-        HealthBar.transform.LookAt(Playerpos);
+        }
+
 
     }
-    private void OnTriggerStay(Collider collision)
+   public void OnCollisionEnter(Collision collision)
     {
-         //collison and attacking
+        //collison and attacking
         if (collision.gameObject.CompareTag("Player"))
         {
-            
-            
-            if (timer >= attackCooldown)
-            {
-                Debug.Log("Collided with player");
-                isAttacking = true;
-                DealDamage(); 
-               
-                timer = 0f; 
-              
-            }
-           
-
+            isAttacking = true;
         }
         else
         {
             isAttacking = false;
         }
-     
-    }
-  
 
-    public void DealDamage()
-    {
-       character_movement player = FindFirstObjectByType<character_movement>();
-        player.TakeDamage(damage);
-    }   
-    public void TakeDamage(float damage)
-    {
-        EHealth -= damage;
-        if (EHealth <= 0)
-        {
-            isDead = true;
-            Die();
-
-        }
-    }
-    void Die()
-    {
-        // Play death animation and/or effects here
-
-        Destroy(gameObject);
-        
     }
 }

@@ -1,4 +1,3 @@
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,7 +25,7 @@ public class character_movement : MonoBehaviour
     public float baseMaxHealth;
 
 
-    public float maxHealth => baseMaxHealth + PlayerStatsInstance.Instance.stats.healthPointsUp;
+    public float maxHealth => baseMaxHealth + Stats.Instance.healthPointsUp;
 
     private float invinciblity;
     public float invincibiltyTime;
@@ -114,18 +113,6 @@ public class character_movement : MonoBehaviour
         
 
     }
-
-    public void Interact(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            FindObjectsByType<DetectPlayer>(FindObjectsSortMode.None)
-                .Where(item => item.playerInRange)
-                .FirstOrDefault()?
-                .Interaction(context);
-        }
-    }
-
     public void TakeDamage(float damage)
     {
 

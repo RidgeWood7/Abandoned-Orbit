@@ -2,17 +2,26 @@ using UnityEngine;
 
 public class PowerupController : MonoBehaviour
 {
-	private	GameObject enemyPrefab;
-	
+	private	 GameObject enemyPrefab;
 	
 	void Start()
 	{
 		enemyPrefab = FindAnyObjectByType<ShrimpleENEMY>().gameObject;
     }
-
-    public void AddPowerup(Powerup powerup)
+    public void AddAmmoPowerup()
 	{
-		gameObject.GetComponent<PowerUpInstance>().Apply(powerup);
-		enemyPrefab.GetComponent<PowerUpInstance>().Apply(powerup);
+		gameObject.AddComponent<Ammoup>();
+		enemyPrefab.AddComponent<Ammoup>();
+
+    }
+	public void AddDamagePowerup()
+	{
+		gameObject.AddComponent<DamageUp>();
+		enemyPrefab.AddComponent<DamageUp>();
+    }
+	public void AddHealthPowerup()
+	{
+		gameObject.AddComponent<HealthUp>();
+		enemyPrefab.AddComponent<HealthUp>();
     }
 }

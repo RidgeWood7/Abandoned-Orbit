@@ -5835,7 +5835,7 @@ MonoBehaviour:
   MaxEHealth: 20
   EHealth: 20
   isDead: 0
-  basedamage: 0
+  damage: 3
   oldattackCooldown: 2
   isAttacking: 0
   isMoving: 0
@@ -5897,12 +5897,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7534767504236027113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a94ffa9f48d9696468ecb649aecf80d3, type: 3}
+  m_Script: {fileID: 11500000, guid: c0ffebe7dc002b64094a6ff994e24db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  powerUpName: 
-  powerUpIcon: {fileID: 0}
-  powerup: {fileID: 0}
+  damageMultiplier: 1
+  speedMultiplier: 1
+  healthPointsUp: 0
+  attackSpeedUp: 1
 --- !u!114 &9079024980412606683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5915,6 +5916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fdd5892a1cf8142a3e2c964f347dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerupController
+  enemyPrefab: {fileID: 7534767504236027113}
 --- !u!1 &7651307135644514799
 GameObject:
   m_ObjectHideFlags: 0
