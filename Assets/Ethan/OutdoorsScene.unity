@@ -269,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784792298793695002, guid: d4956047b4f0d7945a71d34bdeeb260b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000030517578
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 3784792298793695002, guid: d4956047b4f0d7945a71d34bdeeb260b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -318,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 8865810791217603067, guid: d4956047b4f0d7945a71d34bdeeb260b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073639470050242567, guid: d4956047b4f0d7945a71d34bdeeb260b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.06335449
       objectReference: {fileID: 0}
     - target: {fileID: 9166175628145556185, guid: d4956047b4f0d7945a71d34bdeeb260b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -922,6 +926,14 @@ PrefabInstance:
     - target: {fileID: 4387729401168139412, guid: bd09e74b35d56f2478da593ef88283de, type: 3}
       propertyPath: m_Name
       value: AudioManager 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611760574886262472, guid: bd09e74b35d56f2478da593ef88283de, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409873220664884117, guid: bd09e74b35d56f2478da593ef88283de, type: 3}
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
