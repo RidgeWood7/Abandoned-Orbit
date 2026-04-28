@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.Animations;
-public class getvalueAttacking : MonoBehaviour
+public class GetvalueAttacking : MonoBehaviour
 {
     public ShrimpleENEMY ShrimpleENEMY;
-    public bool IsAttacking;
+    public bool IsAttacking1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,8 +15,8 @@ public class getvalueAttacking : MonoBehaviour
     void Update()
     {
             
-        IsAttacking = ShrimpleENEMY.isAttacking;
+        IsAttacking1 = ShrimpleENEMY.isAttacking;
         Animator animator = GetComponent<Animator>();
-        animator.SetBool("IsAttacking", IsAttacking);
+        animator.SetBool("IsAttacking", IsAttacking1);
     }
 }
