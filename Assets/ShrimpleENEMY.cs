@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
+using UnityEngine.AI;
+using Newtonsoft.Json.Serialization;
+using Unity.Collections;
 public class ShrimpleENEMY : MonoBehaviour
 {
     public Transform Playerpos;
@@ -12,9 +15,11 @@ public class ShrimpleENEMY : MonoBehaviour
     private float timer;
     public float basedamage;
     [SerializeField] private float oldattackCooldown;
+    private bool attacking1;
+    private Animator animator;
 
     public float damage => basedamage * EnemyStatsInstance.Instance.stats.damageMultiplier;
-    public float attackCooldown => oldattackCooldown + EnemyStatsInstance.Instance.stats.attackSpeedUp;
+    public float attackCooldown => oldattackCooldown * EnemyStatsInstance.Instance.stats.attackSpeedUp;
 
 
 
@@ -25,11 +30,13 @@ public class ShrimpleENEMY : MonoBehaviour
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         EHealth = MaxEHealth;
+         animator = GetComponent<Animator>();
+        
     }
     void Update()
     {
-     
 
+        attacking1 = isAttacking;
 
         HealthBar.value = EHealth;
         HealthBar.maxValue = MaxEHealth;
@@ -50,7 +57,11 @@ public class ShrimpleENEMY : MonoBehaviour
             {
                 Debug.Log("Collided with player");
                 isAttacking = true;
-                DealDamage(); 
+                if(isAttacking == true)
+                {
+                    animator.SetBool("IsAttacking", true);
+                    DealDamage();
+                }
                
                 timer = 0f; 
               

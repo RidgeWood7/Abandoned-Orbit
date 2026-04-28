@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class character_movement : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class character_movement : MonoBehaviour
 
     [HideInInspector] public CharacterController controller;
     public float jumpHeight = 2f;
-    public float speed = 5f;
+    public float baseSpeed = 5f;
     private float gravity = -9.81f;
     [SerializeField] private float gravityMultiplier = 3f;
     [HideInInspector] public float velocityY;
@@ -25,7 +26,7 @@ public class character_movement : MonoBehaviour
     public float currentHealth;
     public float baseMaxHealth;
 
-
+    public float speed => baseSpeed * PlayerStatsInstance.Instance.stats.speedMultiplier;
     public float maxHealth => baseMaxHealth + PlayerStatsInstance.Instance.stats.healthPointsUp;
 
     private float invinciblity;
