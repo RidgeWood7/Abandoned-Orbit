@@ -7,8 +7,20 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] AudioMixer mixer;
-    [SerializeField] AudioSource clickSource;
-    [SerializeField] List<AudioClip> clickClips = new List<AudioClip>();
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource SFXSource;
+
+    public AudioClip background;
+    public AudioClip death;
+    public AudioClip fire;
+    public AudioClip walk;
+    public AudioClip kill;
+    public AudioClip doorOpened;
+    public AudioClip Button;
+    public AudioClip Charge;
+    public AudioClip HealAndPowerUp;
+
+    
 
     public const string MUSIC_KEY = "musicVolume";
     public const string SFX_KEY = "sfxVolume";
@@ -28,11 +40,9 @@ public class AudioManager : MonoBehaviour
         VolumeLoader();
     }
 
-    public void clickSFX()
+    public void PlaySFX(AudioClip clip)
     {
-        AudioClip clip = clickClips[Random.Range(0, clickClips.Count)];
-
-        clickSource.PlayOneShot(clip);
+        SFXSource.PlayOneShot(clip);
     }
 
     void VolumeLoader() // Volume saved in AudioSetting.cs

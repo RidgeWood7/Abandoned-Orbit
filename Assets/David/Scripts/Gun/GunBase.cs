@@ -28,8 +28,8 @@ public abstract class GunBase : MonoBehaviour
     private bool isReloading;
 
     private bool CanShoot => bulletsLeft > 0 && !isReloading;
-    public int MagazineSize => baseMagazineSize + Stats.Instance.ammoUp;
-    public float Damage => baseDamage * Stats.Instance.damageMultiplier;
+    public int MagazineSize => baseMagazineSize + PlayerStatsInstance.Instance.stats.ammoUp;
+    public float Damage => baseDamage * PlayerStatsInstance.Instance.stats.damageMultiplier;
 
     public void Awake()
     {

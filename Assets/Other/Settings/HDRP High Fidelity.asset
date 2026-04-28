@@ -211,12 +211,8 @@ MonoBehaviour:
   m_PrefilterUseLightmapBicubicSampling: 0
   m_RenderPipelineSettings:
     supportShadowMask: 0
-    supportSSR: 1
-<<<<<<< HEAD
+    supportSSR: 0
     supportSSRTransparent: 0
-=======
-    supportSSRTransparent: 1
->>>>>>> 1b61874fe0c61d2c0e05331d4614f43aadbddd5f
     supportSSAO: 1
     supportSSGI: 1
     supportSubsurfaceScattering: 1

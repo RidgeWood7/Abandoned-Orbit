@@ -1,19 +1,36 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Rendering.HighDefinition;
 
 public class deactivateWindow : MonoBehaviour
 {
+    
     public GameObject window;
-    public DetectPlayer detectPlayer;
+    private CharacterController player;
+    private GameObject buttonPrompt;
+
+
+
     private void Start()
     {
-       
+        player = FindFirstObjectByType<CharacterController>();
+        buttonPrompt = FindFirstObjectByType<DetectPlayer>().buttonPrompt;
     }
 
     public void CloseWindow()
     {
-        window.SetActive(false); // Deactivate the button   
-        Time.timeScale = 1f; // Resume the game
-        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor
-        detectPlayer.enabled =false; // Deactivate the detectPlayer script after item selection
+        window.SetActive(false); 
+       
+        Cursor.lockState = CursorLockMode.Locked;
+
+        DetectPlayer.current.enabled = false;
+        DetectPlayer.current.GetComponent<DetectPlayer>().playerInRange = false;
+        DetectPlayer.current.GetComponent<DetectPlayer>().buttonPrompt.SetActive(false);
+        DetectPlayer.current = null;
+
+        player.enabled = true; 
+        Time.timeScale = 1f; 
+
+
     }
 }
