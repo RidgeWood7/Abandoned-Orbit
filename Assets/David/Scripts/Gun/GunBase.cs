@@ -18,8 +18,9 @@ public abstract class GunBase : MonoBehaviour
     [SerializeField] private int baseMagazineSize;
     [HideInInspector] public int bulletsLeft;
     public int bulletsShot;
-    
-    
+
+    [SerializeField] Recoil recoil;
+
 
     [InspectorName("Relaod time Per Bullet")]  public float reloadTime;
     public Image reloadSprite;
@@ -50,6 +51,7 @@ public abstract class GunBase : MonoBehaviour
 
         if (isHoldingShoot && CanShoot)
         {
+           
             if (CurrentFireRate <= 0f)
             {
                 CurrentFireRate = fireRate; // Reset fire rate timer
@@ -58,6 +60,7 @@ public abstract class GunBase : MonoBehaviour
 
                 ShootGun();
             }
+            
         }
     }
 
@@ -65,7 +68,7 @@ public abstract class GunBase : MonoBehaviour
     {
         if (context.started)
         {
-                       
+            
             isHoldingShoot = true;
             
         }
@@ -112,6 +115,4 @@ public abstract class GunBase : MonoBehaviour
            
         }
     }
-
-   
 }
