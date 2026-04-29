@@ -34,8 +34,9 @@ public class character_movement : MonoBehaviour
 
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public Vector3 _direction;
+    [SerializeField] Animator animator;
 
-    
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -45,10 +46,15 @@ public class character_movement : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+       if(moveInput != Vector2.zero)
+        {
+           animator.SetTrigger("IsMoving"); 
+        }
+       
 
         ApplyGravity();
 
@@ -76,6 +82,9 @@ public class character_movement : MonoBehaviour
 
         invinciblity -= Time.deltaTime;
 
+        
+            
+
     }
 
 
@@ -97,6 +106,7 @@ public class character_movement : MonoBehaviour
     public void ApplyMovement(InputAction.CallbackContext context)
     {
         
+      
         moveInput = context.ReadValue<Vector2>();
         _direction = new Vector3(moveInput.x, 0, moveInput.y);
 
