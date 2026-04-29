@@ -82,8 +82,8 @@ MonoBehaviour:
   active: 1
   m_Version: 1
   skyType:
-    m_OverrideState: 1
-    m_Value: 3
+    m_OverrideState: 0
+    m_Value: 1
   cloudType:
     m_OverrideState: 0
     m_Value: 0
@@ -477,7 +477,7 @@ MonoBehaviour:
     m_Value: 2
   m_FullResolution:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   sampleCount:
     m_OverrideState: 1
     m_Value: 1
@@ -535,13 +535,13 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 5.06
   intensity:
     m_OverrideState: 1
-    m_Value: 0.779
+    m_Value: 1
   scatter:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.946
   tint:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -550,7 +550,7 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: 6e7dcebb34d011e448b8b2394d81574d, type: 3}
   dirtIntensity:
     m_OverrideState: 1
-    m_Value: 9.74
+    m_Value: 7.88
   anamorphic:
     m_OverrideState: 0
     m_Value: 1
@@ -590,10 +590,10 @@ MonoBehaviour:
     m_Value: 0.389
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.103
+    m_Value: 0.309
   roundness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.919
   rounded:
     m_OverrideState: 1
     m_Value: 1
@@ -705,7 +705,7 @@ MonoBehaviour:
     m_Value: 65535
   reflectionLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 0.53
+    m_Value: 5.28
   reflectionLightingLayers:
     m_OverrideState: 1
     m_Value: 65535
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cc4c5fcb677014ebdc0d8be227b40c, type: 3}
   m_Name: ScreenSpaceLensFlare
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.ScreenSpaceLensFlare
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: 188.29
