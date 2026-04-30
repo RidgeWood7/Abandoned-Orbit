@@ -4,12 +4,18 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    AudioManager audioManager;
     public TextMeshProUGUI healthText;
     public Image healthBar;
     public Image[] healthPoints;
 
     public float health, maxHealth = 100f;
     public float lerpSpeed;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         health = maxHealth;
@@ -49,6 +55,7 @@ public class HealthBar : MonoBehaviour
     {
         if (health > 0)
         {
+            audioManager.PlaySFX(audioManager.damage);
             health -= damagePoints;
         }
     }
@@ -56,6 +63,7 @@ public class HealthBar : MonoBehaviour
     {
         if (health < maxHealth)
         {
+            audioManager.PlaySFX(audioManager.HealAndPowerUp);
             health += healPoints;
         }
     }
