@@ -410,6 +410,8 @@ MonoBehaviour:
   fire: {fileID: 8300000, guid: d02c6a2156ee9b146b97c4da8162a5d1, type: 3}
   walk: {fileID: 8300000, guid: 7a9693c1275acae4bb589babed7d3c9c, type: 3}
   kill: {fileID: 8300000, guid: 34b1d637b0397ec46b0f6ad87a35d6c0, type: 3}
+  damage: {fileID: 8300000, guid: ddd55d78c3f12ee48ba57e094e1343ff, type: 3}
+  damaged: {fileID: 8300000, guid: 7b039e07c3e3f3346989ab5d05286b6e, type: 3}
   doorOpened: {fileID: 8300000, guid: 7ebda051e0a84a744b394372b8533e0f, type: 3}
   Button: {fileID: 8300000, guid: 7d950ff70b8967c438109a5c9937882a, type: 3}
   Charge: {fileID: 8300000, guid: 98ddb50416dad7d4bb9b16462f52c75f, type: 3}

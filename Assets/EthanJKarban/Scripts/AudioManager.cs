@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip fire;
     public AudioClip walk;
     public AudioClip kill;
+    public AudioClip damage;
+    public AudioClip damaged;
     public AudioClip doorOpened;
     public AudioClip Button;
     public AudioClip Charge;

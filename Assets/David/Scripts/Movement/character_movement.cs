@@ -34,7 +34,7 @@ public class character_movement : MonoBehaviour
 
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public Vector3 _direction;
-    [SerializeField] Animator animator;
+
 
 
     private void Awake()
@@ -50,12 +50,6 @@ public class character_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(moveInput != Vector2.zero)
-        {
-           animator.SetTrigger("IsMoving"); 
-        }
-       
-
         ApplyGravity();
 
         Vector3 forward = cameraTransform.forward;
