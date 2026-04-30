@@ -68,6 +68,9 @@ public class CollectionSystem : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private TextMeshProUGUI _note;
+
+
     private void Update()
     {
         //I know it's not great to have these in update but it's 1/1000000 of a real game so who cares
@@ -102,6 +105,8 @@ public class CollectionSystem : MonoBehaviour
         if (collider == _keycard1CollectionZone)
         {
             hasKeycard1 = true;
+            _note.enabled = true;
+            /*NEED TO ADD FUNCTION THAT ALLOWS THE PLAYER TO CLOSE THE NOTE*/
         }
         if (collider == _keycard2CollectionZone)
         {
