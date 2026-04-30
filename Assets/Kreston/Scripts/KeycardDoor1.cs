@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class KeycardDoor1 : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
     #region System Setting
     private CollectionSystem _system;
 
@@ -12,7 +13,6 @@ public class KeycardDoor1 : MonoBehaviour
     #endregion
 
     private bool canOpen;
-    [SerializeField] private Animator _animator;
 
     private void Update()
     {
@@ -28,7 +28,7 @@ public class KeycardDoor1 : MonoBehaviour
         {
             if (canOpen)
             {
-                _animator.SetBool("Open", true);
+                _animator.SetBool("DoorOpen", true);
             }
         }
     }

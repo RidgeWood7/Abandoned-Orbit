@@ -80,11 +80,11 @@ public class CollectionSystem : MonoBehaviour
         _needFoodSupply.SetActive(_findingFoodSupply);
         _needOxygenTank.SetActive(_findingOxygenTank);
 
-        _keycard1.gameObject.SetActive(_hasKeycard1);
-        _keycard2.gameObject.SetActive(_hasKeycard2);
+        _keycard1.gameObject.SetActive(hasKeycard1);
+        _keycard2.gameObject.SetActive(hasKeycard2);
         _wires.gameObject.SetActive(_hasWires);
         _powerCell.gameObject.SetActive(_hasPowerCell);
-        _power.gameObject.SetActive(_hasPower);
+        _power.gameObject.SetActive(hasPower);
         _foodSupply.gameObject.SetActive(_hasFoodSupply);
         _oxygenTank.gameObject.SetActive(_hasOxygenTank);
 
@@ -101,11 +101,11 @@ public class CollectionSystem : MonoBehaviour
         Debug.Log("Collided with " + collider.name);
         if (collider == _keycard1CollectionZone)
         {
-            _hasKeycard1 = true;
+            hasKeycard1 = true;
         }
         if (collider == _keycard2CollectionZone)
         {
-            _hasKeycard2 = true;
+            hasKeycard2 = true;
         }
         if (collider == _wiresCollectionZone)
         {
@@ -117,7 +117,7 @@ public class CollectionSystem : MonoBehaviour
         }
         if (collider == _powerCollectionZone)
         {
-            _hasPower = true;
+            hasPower = true;
         }
         if (collider == _foodSupplyCollectionZone)
         {
@@ -131,7 +131,7 @@ public class CollectionSystem : MonoBehaviour
 
         #region Setting Current Tasks
 
-        if (_hasKeycard1)
+        if (hasKeycard1)
         {
             //open note UI here <----------------------------------------------------!!!!!!!!!!!!!!!!!!!!
             if (_currentTaskNum < 1)
@@ -155,7 +155,7 @@ public class CollectionSystem : MonoBehaviour
             _findingKeycard2 = true;
         }
 
-        if (_hasPowerCell && _hasFoodSupply && _hasOxygenTank && _hasPower && _hasKeycard2)
+        if (_hasPowerCell && _hasFoodSupply && _hasOxygenTank && hasPower && hasKeycard2)
         {
             if (_currentTaskNum < 3)
             {
