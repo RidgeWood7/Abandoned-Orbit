@@ -7,11 +7,11 @@ public class CollectionSystem : MonoBehaviour
 {
     #region Collection Variables
     [Header("Collected Items Bools")]
-    [SerializeField] private bool _hasKeycard1;
-    [SerializeField] private bool _hasKeycard2;
+    public bool hasKeycard1;
+    public bool hasKeycard2;
     [SerializeField] private bool _hasWires;
     [SerializeField] private bool _hasPowerCell;
-    [SerializeField] private bool _hasPower;
+    public bool hasPower;
     [SerializeField] private bool _hasFoodSupply;
     [SerializeField] private bool _hasOxygenTank;
     
@@ -80,52 +80,97 @@ public class CollectionSystem : MonoBehaviour
         _needFoodSupply.SetActive(_findingFoodSupply);
         _needOxygenTank.SetActive(_findingOxygenTank);
 
-        _keycard1.gameObject.SetActive(_hasKeycard1);
-        _keycard2.gameObject.SetActive(_hasKeycard2);
+        _keycard1.gameObject.SetActive(hasKeycard1);
+        _keycard2.gameObject.SetActive(hasKeycard2);
         _wires.gameObject.SetActive(_hasWires);
         _powerCell.gameObject.SetActive(_hasPowerCell);
-        _power.gameObject.SetActive(_hasPower);
+        _power.gameObject.SetActive(hasPower);
         _foodSupply.gameObject.SetActive(_hasFoodSupply);
         _oxygenTank.gameObject.SetActive(_hasOxygenTank);
 
         _currentTaskUI.text = $"CURRENT TASK:\n\n{_tasks[_currentTaskNum]}";
+
+
+
+
     }
 
     private void OnTriggerEnter(Collider collider)
     {
+        #region Task Triggers
         Debug.Log("Collided with " + collider.name);
         if (collider == _keycard1CollectionZone)
         {
-            _hasKeycard1 = true;
+            hasKeycard1 = true;
         }
-        else if (collider == _keycard2CollectionZone)
+        if (collider == _keycard2CollectionZone)
         {
-            _hasKeycard2 = true;
+            hasKeycard2 = true;
         }
-        else if (collider == _wiresCollectionZone)
+        if (collider == _wiresCollectionZone)
         {
             _hasWires = true;
         }
-        else if (collider == _powerCellCollectionZone)
+        if (collider == _powerCellCollectionZone)
         {
             _hasPowerCell = true;
         }
-        else if (collider == _powerCollectionZone)
+        if (collider == _powerCollectionZone)
         {
-            _hasPower = true;
+            hasPower = true;
         }
-        else if (collider == _foodSupplyCollectionZone)
+        if (collider == _foodSupplyCollectionZone)
         {
             _hasFoodSupply = true;
         }
-        else if (collider == _oxygenTankCollectionZone)
+        if (collider == _oxygenTankCollectionZone)
         {
             _hasOxygenTank = true;
         }
-    }
+        #endregion
 
-    private void NextTask()
-    {
-        _currentTaskNum++;
+        #region Setting Current Tasks
+
+        if (hasKeycard1)
+        {
+            //open note UI here <----------------------------------------------------!!!!!!!!!!!!!!!!!!!!
+            if (_currentTaskNum < 1)
+            {
+                _currentTaskNum = 1;
+            }
+        }
+
+        if (collider == _escapeTasksPopUpZone)
+        {
+            if (_currentTaskNum < 2)
+            {
+                _currentTaskNum = 2;
+            }
+
+            _findingWires = true;
+            _findingPowerCell = true;
+            _findingFoodSupply = true;
+            _findingOxygenTank = true;
+            _findingPower = true;
+            _findingKeycard2 = true;
+        }
+
+        if (_hasPowerCell && _hasFoodSupply && _hasOxygenTank && hasPower && hasKeycard2)
+        {
+            if (_currentTaskNum < 3)
+            {
+                _currentTaskNum = 3;
+            }
+
+            _findingKeycard1 = false;
+            _findingWires = false;
+            _findingPowerCell = false;
+            _findingFoodSupply = false;
+            _findingOxygenTank = false;
+            _findingPower = false;
+            _findingKeycard2 = false;
+        }
+
+        #endregion
     }
 }
