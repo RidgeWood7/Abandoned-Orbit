@@ -1,8 +1,9 @@
 using System.Collections;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-using static System.TimeZoneInfo;
+using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -23,17 +24,17 @@ public class PauseMenu : MonoBehaviour
     }
     private void Update()
     {
-    //    if (Input.GetKeyDown(KeyCode.Escape))
-    //    {
-    //        if (GameIsPaused)
-    //        {
-    //            Resume();
-    //        }
-    //        else
-    //        {
-    //            Pause();
-    //        }
-    //    }
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
 
     public void Resume()
