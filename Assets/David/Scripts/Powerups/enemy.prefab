@@ -5713,6 +5713,7 @@ GameObject:
   - component: {fileID: 3533551979257382439}
   - component: {fileID: 2581541586480837001}
   - component: {fileID: 9079024980412606683}
+  - component: {fileID: 8873495812131658438}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -5899,6 +5900,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fdd5892a1cf8142a3e2c964f347dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerupController
+--- !u!95 &8873495812131658438
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534767504236027113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49f097f8066755f409533120f67c1fcc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7651307135644514799
 GameObject:
   m_ObjectHideFlags: 0
@@ -6495,7 +6518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ShrimpleENEMY: {fileID: 700924039827991999}
-  IsAttacking: 0
+  IsAttacking1: 0
 --- !u!1 &8258111300282963427
 GameObject:
   m_ObjectHideFlags: 0
