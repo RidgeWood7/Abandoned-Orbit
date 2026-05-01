@@ -165,9 +165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuControllerUITOOLKIT
   settingsPopup: {fileID: 691066201}
+  audioManager: {fileID: 0}
   settingsMenu: {fileID: 2030984033}
   buttonSound: {fileID: 8300000, guid: 7a9693c1275acae4bb589babed7d3c9c, type: 3}
   sceneName: Titles
+  creditsSceneName: Credits
 --- !u!114 &9385407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39066a4a46e25d6489f78a526b441fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SetitngsPOPUP
+  audioManager: {fileID: 0}
   mixer: {fileID: 1289315703718669743, guid: 004b7490c3f2e6648be33e04faf10dca, type: 2}
   buttonSound: {fileID: 8300000, guid: 7a9693c1275acae4bb589babed7d3c9c, type: 3}
   settingsMenu: {fileID: 2030984033}

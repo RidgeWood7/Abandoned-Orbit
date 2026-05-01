@@ -1,0 +1,23 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Credits/CreditsStyle.uss?fileID=7433441132597879392&amp;guid=5b63e4ed80c91ba4e8323776894c898a&amp;type=3#CreditsStyle"/>
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(135, 123, 123);">
+        <ui:VisualElement name="Border" class="Border" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.75);"/>
+        <ui:VisualElement class="Extra" style="flex-grow: 1; position: relative; background-color: rgba(0, 0, 0, 0.1); rotate: -183deg;">
+            <ui:VisualElement name="VisualElement" focusable="false" style="flex-grow: 1; position: absolute; background-color: rgba(0, 0, 0, 0.44);"/>
+            <ui:VisualElement enabled="true" focusable="false" name="VisualElement" style="flex-grow: 1; position: absolute;"/>
+            <ui:Button text="Exit" name="Exit" style="rotate: 180deg; -unity-text-align: middle-center; translate: 706px 0; -unity-font-definition: url(&quot;project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=3efb2cedf5b6b21459151a9a630a78ce&amp;type=3#PressStart2P-Regular&quot;);"/>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; position: relative; background-color: rgba(0, 0, 0, 0.1); margin-top: 21px; rotate: -183deg;">
+            <ui:VisualElement name="VisualElement" focusable="false" style="flex-grow: 1; position: absolute; background-color: rgba(0, 0, 0, 0.44);"/>
+            <ui:VisualElement enabled="true" focusable="false" name="VisualElement" style="flex-grow: 1; position: absolute; scale: 0.7 0.7;"/>
+            <ui:Label text="Credits" selectable="false" focusable="false" name="CreditsTitle" style="-unity-font-definition: url(&quot;project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=3efb2cedf5b6b21459151a9a630a78ce&amp;type=3#PressStart2P-Regular&quot;); font-size: 50px; rotate: -180deg; -unity-text-align: upper-center; transition-duration: 0s, 2s, 2s;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="ButtonVisual" style="flex-grow: 1; width: auto; height: 164px; flex-direction: row; justify-content: center; align-items: auto; align-content: auto; align-self: center; rotate: -2.75deg;">
+            <ui:Button text="Kreston. G" name="Kreston"/>
+            <ui:Button text="Finn. G" name="Finn"/>
+            <ui:Button text="David. P" name="David"/>
+            <ui:Button text="Ethan. K" name="Ethan"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="Border2" class="Border" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.69); translate: 0 28px;"/>
+    </ui:VisualElement>
+</ui:UXML>

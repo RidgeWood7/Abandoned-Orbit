@@ -8,4 +8,5 @@
             <ui:Button text="Quit" name="QuitButton" class="unity-button" style="transition-property: all, color; transition-duration: 0s, 0.5s; transition-timing-function: ease, ease; transition-delay: 0s, 0s;"/>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:Button text="Credits" name="CreditsButton" style="position: absolute; top: 448px; left: 779px; height: 53px; width: 160px;"/>
 </ui:UXML>

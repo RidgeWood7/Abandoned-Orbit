@@ -1,0 +1,50 @@
+:root {
+}
+
+.Border {
+    -unity-material: url("");
+    rotate: -183deg;
+    translate: 0 -34px;
+    scale: -3 1;
+}
+
+.unity-button {
+    width: 215px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-width: 11px;
+    border-top-width: 3px;
+    border-right-width: 8px;
+    border-left-width: 8px;
+    -unity-font-definition: url("project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&guid=3efb2cedf5b6b21459151a9a630a78ce&type=3#PressStart2P-Regular");
+}
+
+.Extra {
+}
+
+.unity-label {
+    transition-property: all, scale, scale;
+    transition-duration: 0s, 2s, 2s;
+    transition-timing-function: ease, ease-in, ease-out;
+    transition-delay: 0s, 0s, 0s;
+    scale: 1.5 1.5;
+}
+
+.unity-button:active {
+    border-left-color: rgb(185, 185, 185);
+    border-right-color: rgb(185, 185, 185);
+    border-top-color: rgb(185, 185, 185);
+    border-bottom-color: rgb(185, 185, 185);
+    background-color: rgb(219, 219, 219);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    margin-top: -1px;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    margin-left: -1px;
+    top: auto;
+    translate: 0 3px;
+    transition-property: all, border-color;
+    transition-duration: 0s, 2s;
+    transition-timing-function: ease, ease;
+    transition-delay: 0s, 0s;
+}

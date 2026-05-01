@@ -17,6 +17,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/David/camAndMove.unity
     guid: 675585c8f4485454a9fb443c219f9b0e
+  - enabled: 1
+    path: Assets/Credits/Credits.unity
+    guid: bfecbc63d45b76741ab00b21e02ff05b
+  - enabled: 1
+    path: Assets/Credits/CD.unity
+    guid: ddd816cccb40fec45816305980488c9e
+  - enabled: 1
+    path: Assets/Credits/CE.unity
+    guid: 22d2d7f2b55abf14eb15ede590eb1b3e
+  - enabled: 1
+    path: Assets/Credits/CF.unity
+    guid: 9859e00134ffdea42965200aed44c0b2
+  - enabled: 1
+    path: Assets/Credits/CK.unity
+    guid: 7dd8d23abf43a7c40806ff64e0a0017f
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
