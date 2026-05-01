@@ -169,7 +169,7 @@ MonoBehaviour:
   velocityY: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   boxSize: {x: 0.5, y: 0.2, z: 0.5}
   groundCheckDistance: 0.95
   currentHealth: 20

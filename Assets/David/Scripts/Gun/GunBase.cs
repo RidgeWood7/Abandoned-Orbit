@@ -28,6 +28,10 @@ public abstract class GunBase : MonoBehaviour
     private bool isHoldingShoot;
     private bool isReloading;
 
+    private PlayerAnimation playerAnimation;
+    [SerializeField] private AnimationClip shoot;
+    [SerializeField] private AnimationClip reload;
+
     private bool CanShoot => bulletsLeft > 0 && !isReloading;
     public int MagazineSize => baseMagazineSize + PlayerStatsInstance.Instance.stats.ammoUp;
     public float Damage => baseDamage * PlayerStatsInstance.Instance.stats.damageMultiplier;
@@ -35,7 +39,8 @@ public abstract class GunBase : MonoBehaviour
     public void Awake()
     {
         player = FindFirstObjectByType<character_movement>();
-       
+        playerAnimation = FindFirstObjectByType<PlayerAnimation>();
+
     }
     private void Start()
     {
@@ -45,7 +50,12 @@ public abstract class GunBase : MonoBehaviour
 
     public void Update()
     {
-       
+       playerAnimation.shootSpeedMult = 1 / (fireRate / shoot.length);
+
+        playerAnimation.reloadSpeedMult = 1 / (reloadTime / reload.length);
+
+        playerAnimation.gunAnimator.SetBool("HasAmmo", bulletsLeft>0);
+        playerAnimation.armsAnimator.SetBool("HasAmmo", bulletsLeft > 0);
 
         CurrentFireRate -= Time.deltaTime;
 
@@ -90,6 +100,7 @@ public abstract class GunBase : MonoBehaviour
 
     IEnumerator ReloadCoroutine()
     {
+        if(playerAnimation.coolingShot) yield break;
         if (bulletsLeft < MagazineSize)
         {
             Debug.Log("Reloading...");

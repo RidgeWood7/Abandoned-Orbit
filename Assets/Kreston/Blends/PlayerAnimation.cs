@@ -6,20 +6,24 @@ public class PlayerAnimation : MonoBehaviour
 {
     [Header("Animators and Bools")]
     private bool isWalking = false;
-    [SerializeField] private Animator armsAnimator;
-    [SerializeField] private Animator gunAnimator;
+    public Animator armsAnimator;
+    public Animator gunAnimator;
     public bool coolingShot = false;
     public bool coolingReload = false;
     
     [Header("Shooting and Reloading")]
-    [SerializeField] private float shootSpeedMult = 1f;
-    [SerializeField] private float reloadSpeedMult = 1f;
+    [SerializeField] public float shootSpeedMult = 1f;
+    [SerializeField] public float reloadSpeedMult = 1f;
     [SerializeField] private bool isAutomatic;
-
+     private GunBase gunBase;   
     [Header("Particles")]
     [SerializeField] private List<ParticleSystem> shootParticles = new();
     [SerializeField] private List<ParticleSystem> reloadParticles = new();
 
+    private void Start()
+    {
+        gunBase = FindFirstObjectByType<GunBase>();
+    }
     private void Update()
     {
         if (armsAnimator == null) return;
@@ -48,7 +52,8 @@ public class PlayerAnimation : MonoBehaviour
                 {
                     foreach (var item in shootParticles)
                     {
-                        item.Play();
+                        if(gunBase.bulletsLeft > 0) 
+                            item.Play();
                     }
                 }
             }
@@ -64,7 +69,8 @@ public class PlayerAnimation : MonoBehaviour
                 {
                     foreach (var item in shootParticles)
                     {
-                        item.Play();
+                        if(gunBase.bulletsLeft > 0)
+                            item.Play();
                     }
                 }
             }
