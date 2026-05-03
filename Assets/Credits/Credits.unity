@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 778182785840646514, guid: bd09e74b35d56f2478da593ef88283de, type: 3}
+      propertyPath: HealAndPowerUp
+      value: 
+      objectReference: {fileID: 8300000, guid: d928838984431ac49a739a873aaade71, type: 3}
     - target: {fileID: 2327543790678219694, guid: bd09e74b35d56f2478da593ef88283de, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4178.6743
