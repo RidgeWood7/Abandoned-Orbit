@@ -13,7 +13,12 @@ public class KeycardDoor2 : MonoBehaviour
     #endregion
 
     private bool canOpen;
+    public AudioManager audioManager;
 
+    public void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Update()
     {
         if (_system != null && _system.hasKeycard2)
@@ -28,6 +33,7 @@ public class KeycardDoor2 : MonoBehaviour
         {
             if (canOpen)
             {
+                audioManager.PlaySFX(audioManager.doorOpened);
                 _animator.SetBool("DoorOpen", true);
             }
         }

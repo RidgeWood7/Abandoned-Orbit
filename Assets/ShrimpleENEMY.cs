@@ -18,6 +18,8 @@ public class ShrimpleENEMY : MonoBehaviour
     private bool attacking1;
     private Animator animator;
 
+    public AudioManager audioManager;
+
     public float damage => basedamage * EnemyStatsInstance.Instance.stats.damageMultiplier;
     public float attackCooldown => oldattackCooldown * EnemyStatsInstance.Instance.stats.attackSpeedUp;
 
@@ -26,6 +28,11 @@ public class ShrimpleENEMY : MonoBehaviour
     public bool isAttacking;
     public bool isMoving;
     // Start is called before the first frame update
+
+    public void Awake()
+    {
+       AudioManager audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -81,10 +88,12 @@ public class ShrimpleENEMY : MonoBehaviour
     {
        character_movement player = FindFirstObjectByType<character_movement>();
         player.TakeDamage(damage);
+        audioManager.PlaySFX(audioManager.damaged);
     }   
     public void TakeDamage(float damage)
     {
         EHealth -= damage;
+        audioManager.PlaySFX(audioManager.damage);
         if (EHealth <= 0)
         {
             isDead = true;

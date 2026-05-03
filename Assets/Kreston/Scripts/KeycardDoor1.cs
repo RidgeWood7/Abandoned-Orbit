@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class KeycardDoor1 : MonoBehaviour
 {
+    public AudioManager audioManager;
     [SerializeField] private Animator _animator;
     #region System Setting
     private CollectionSystem _system;
@@ -14,6 +15,10 @@ public class KeycardDoor1 : MonoBehaviour
 
     private bool canOpen;
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Update()
     {
         if (_system != null && _system.hasKeycard1) //<------
@@ -28,7 +33,8 @@ public class KeycardDoor1 : MonoBehaviour
         {
             if (canOpen)
             {
-                _animator.SetBool("DoorOpen", true);
+                audioManager.PlaySFX(audioManager.doorOpened);
+                _animator.SetBool("DoorOpen", true); 
             }
         }
     }
