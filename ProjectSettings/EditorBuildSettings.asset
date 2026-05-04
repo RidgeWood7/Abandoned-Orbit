@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/OutdoorsScene.unity
-    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Ethan/MainMenu.unity
+    guid: 981f1c54fffe6ab4ab5c41af8af19b1c
   - enabled: 1
     path: Assets/EthanJKarban/Scenes/Titles.unity
     guid: 88ac8d703937fd846b8c17a89ccb6b7c

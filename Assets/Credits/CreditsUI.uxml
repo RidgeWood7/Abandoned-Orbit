@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Credits/CreditsStyle.uss?fileID=7433441132597879392&amp;guid=5b63e4ed80c91ba4e8323776894c898a&amp;type=3#CreditsStyle"/>
-    <ui:VisualElement style="flex-grow: 1; background-color: rgb(135, 123, 123);">
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(173, 173, 173);">
         <ui:VisualElement name="Border" class="Border" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.75);"/>
         <ui:VisualElement class="Extra" style="flex-grow: 1; position: relative; background-color: rgba(0, 0, 0, 0.1); rotate: -183deg;">
             <ui:VisualElement name="VisualElement" focusable="false" style="flex-grow: 1; position: absolute; background-color: rgba(0, 0, 0, 0.44);"/>
