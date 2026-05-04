@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public abstract class GunBase : MonoBehaviour
 {
+    public AudioManager audioManager;  // I have no idea where to put the reloading sound here, so just whenever you want to put that in just put  audioManager.PlaySFX(audioManager.Charge);
+                                     
     public character_movement player;   
     public string gunName;
     public Sprite gunIcon;
@@ -40,7 +42,7 @@ public abstract class GunBase : MonoBehaviour
     {
         player = FindFirstObjectByType<character_movement>();
         playerAnimation = FindFirstObjectByType<PlayerAnimation>();
-
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     private void Start()
     {
@@ -67,7 +69,7 @@ public abstract class GunBase : MonoBehaviour
                 CurrentFireRate = fireRate; // Reset fire rate timer
                 bulletsLeft--;
                 bulletsShot++;
-
+                audioManager.PlaySFX(audioManager.fire);
                 ShootGun();
             }
             

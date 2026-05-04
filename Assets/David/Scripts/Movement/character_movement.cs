@@ -9,6 +9,7 @@ public class character_movement : MonoBehaviour
 {
     [SerializeField] private Transform cameraTransform;
 
+    public AudioManager audioManager;
 
     [HideInInspector] public CharacterController controller;
     public float jumpHeight = 2f;
@@ -40,6 +41,7 @@ public class character_movement : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Start()
@@ -140,6 +142,7 @@ public class character_movement : MonoBehaviour
         invinciblity = invincibiltyTime;
 
         currentHealth -= damage;
+        audioManager.PlaySFX(audioManager.damaged);
         if (currentHealth <= 0)
         {
             Die();
@@ -165,6 +168,7 @@ public class character_movement : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        audioManager.PlaySFX(audioManager.death);
         Debug.Log("Player has died.");
     }
 }

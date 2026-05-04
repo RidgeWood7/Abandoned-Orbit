@@ -48,3 +48,12 @@
     transition-timing-function: ease, ease;
     transition-delay: 0s, 0s;
 }
+
+.unity-button:focus {
+    -unity-text-outline-color: rgb(14, 14, 14);
+    background-color: rgb(255, 255, 255);
+    border-left-color: rgb(209, 209, 209);
+    border-right-color: rgb(209, 209, 209);
+    border-top-color: rgb(209, 209, 209);
+    border-bottom-color: rgb(209, 209, 209);
+}

@@ -34,6 +34,8 @@ public class AnimationBlend
 
 public class Enemy : MonoBehaviour
 {
+    public AudioManager audioManager;
+
     [Header("Enemy")]
 
     public NavMeshAgent agent;
@@ -80,6 +82,7 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         initialSpeed = agent.speed;
 
         plr = GameObject.Find("PLAYER").transform;
@@ -130,6 +133,7 @@ public class Enemy : MonoBehaviour
             ghost.SetActive(true);
 
             agent.speed = 0;
+            audioManager.PlaySFX(audioManager.kill);
             movementBlend.animator.Play("Death");
 
           
