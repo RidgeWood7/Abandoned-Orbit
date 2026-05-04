@@ -24,6 +24,6 @@ MonoBehaviour:
   enemyStatsDelta:
     damageMultiplier: 0
     speedMultiplier: 0
-    healthPointsUp: 10
+    healthPointsUp: 5
     attackSpeedUp: 0
     ammoUp: 0

@@ -1,9 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; -unity-text-align: upper-left; white-space: normal; align-items: stretch; justify-content: flex-start; align-self: stretch; background-color: rgb(210, 210, 210);">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgb(210, 210, 210); height: 80px; align-items: center;">
+            <ui:Label text="Ethan Karban" style="-unity-font-definition: url(&quot;project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=3efb2cedf5b6b21459151a9a630a78ce&amp;type=3#PressStart2P-Regular&quot;); font-size: 24px;"/>
+            <ui:Label text="UI Designer, Sound Design, General Programmer" style="-unity-font-definition: url(&quot;project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=3efb2cedf5b6b21459151a9a630a78ce&amp;type=3#PressStart2P-Regular&quot;); font-size: 18px;"/>
+            <ui:Button text="&lt;&lt;" name="LeftButton" style="position: absolute; top: 17px; left: 2px; border-left-color: rgb(58, 58, 58); border-right-color: rgb(58, 58, 58); border-top-color: rgb(58, 58, 58); border-bottom-color: rgb(58, 58, 58);"/>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgb(58, 58, 58); flex-shrink: 1; height: 40px; border-bottom-left-radius: 0; border-bottom-right-radius: 0;"/>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgb(209, 209, 209); height: 366px;"/>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgb(58, 58, 58); height: 40px; border-top-left-radius: 0; border-top-right-radius: 0; border-top-width: 0;"/>
+        <ui:VisualElement style="flex-grow: 1; background-color: rgb(210, 210, 210); height: 20px;">
+            <ui:Button text="Exit" name="Exit" style="-unity-font-definition: url(&quot;project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&amp;guid=3efb2cedf5b6b21459151a9a630a78ce&amp;type=3#PressStart2P-Regular&quot;); color: rgb(0, 0, 0); background-color: rgb(210, 210, 210); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); translate: 0 -8px; scale: 1.2 1;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

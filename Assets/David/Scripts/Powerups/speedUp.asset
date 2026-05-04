@@ -17,7 +17,7 @@ MonoBehaviour:
   modType: 1
   playerStatsDelta:
     damageMultiplier: 1
-    speedMultiplier: 2.06
+    speedMultiplier: 1.5
     healthPointsUp: 1
     attackSpeedUp: 1
     ammoUp: 1

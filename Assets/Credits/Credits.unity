@@ -778,7 +778,7 @@ MonoBehaviour:
   FinnCredits: CF
   DavidCredits: CD
   EthanCredits: CE
-  MainMenu: Outdoors
+  MainMenu: MainMenu
 --- !u!114 &1265095427
 MonoBehaviour:
   m_ObjectHideFlags: 0

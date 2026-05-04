@@ -17,6 +17,7 @@ public class ShrimpleENEMY : MonoBehaviour
     [SerializeField] private float oldattackCooldown;
     private bool attacking1;
     private Animator animator;
+    private float speed;
 
     public AudioManager audioManager;
 
@@ -38,7 +39,7 @@ public class ShrimpleENEMY : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         EHealth = MaxEHealth;
          animator = GetComponent<Animator>();
-        
+        speed = agent.speed;
     }
     void Update()
     {
@@ -55,7 +56,8 @@ public class ShrimpleENEMY : MonoBehaviour
     }
     private void OnTriggerStay(Collider collision)
     {
-         //collison and attacking
+        agent.speed = speed * EnemyStatsInstance.Instance.stats.speedMultiplier;
+        //collison and attacking
         if (collision.gameObject.CompareTag("Player"))
         {
             

@@ -48,26 +48,26 @@ public class CreditsUIT : MonoBehaviour
     private void CKC()
     {
         audioManager.PlaySFX(audioManager.Button);
-        Time.timeScale = 1f;
+        Time.timeScale = 1.5f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(KrestonCredits);
     }
     private void CFC()
     {
         audioManager.PlaySFX(audioManager.Button);
-        Time.timeScale = 1f;
+        Time.timeScale = 1.5f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(FinnCredits);
     }
     private void CDC()
     {
         audioManager.PlaySFX(audioManager.Button);
-        Time.timeScale = 1f;
+        Time.timeScale = 1.5f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(DavidCredits);
     }
     
     private void CEC()
     {
         audioManager.PlaySFX(audioManager.Button);
-        Time.timeScale = 1f;
+        Time.timeScale = 1.5f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(EthanCredits);
     }
     private void MMC()
