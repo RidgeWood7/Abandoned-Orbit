@@ -45,7 +45,6 @@ public class MainMenuControllerUITOOLKIT : MonoBehaviour
 
     private void OnPlayButtonClicked()
     {
-        gameObject.SetActive(false);
         audioManager.PlaySFX(audioManager.Button);
         Time.timeScale = 1f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(sceneName);
