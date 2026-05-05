@@ -18,20 +18,24 @@ public class HealthBar : MonoBehaviour
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<character_movement>();
     }
-        void Start()
-    { 
-        health = playerHealth.currentHealth;
-        maxHealth = playerHealth.maxHealth;
+    void Start()
+    {
+
 
     }
 
     void Update()
     {
-        healthText.text = "Health " + health + "%" ;
-        if(health > maxHealth) health = maxHealth;
+        
+        health = playerHealth.currentHealth;
+        maxHealth = playerHealth.maxHealth;
+
+
+        healthText.text = "Health " + health * 5 + "%";
+        if (health > maxHealth) health = maxHealth;
 
         lerpSpeed = 3f * Time.deltaTime;
-
+        
         HealthBarFiller();
         ColorChange();
     }
@@ -41,7 +45,7 @@ public class HealthBar : MonoBehaviour
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health / maxHealth, lerpSpeed);
         for (int i = 0; i < healthPoints.Length; i++)
         {
-                       healthPoints[i].enabled = !DisplayHealthPoint(health, i);
+            healthPoints[i].enabled = !DisplayHealthPoint(health, i);
         }
     }
     void ColorChange()
@@ -52,7 +56,7 @@ public class HealthBar : MonoBehaviour
     }
     public bool DisplayHealthPoint(float _health, int pointNumber)
     {
-        return ((pointNumber * 10) >= _health);
+        return ((pointNumber * 2) >= _health);
     }
     public void Damage(float damage)
     {

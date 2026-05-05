@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3067698908054725690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1575,8 +1575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   PauseMenuUI: {fileID: 503488013662473600}
-  buttonSound: {fileID: 8300000, guid: 119216a1b5e97154eb0c6e3019706f65, type: 3}
   mixer: {fileID: 1289315703718669743, guid: 004b7490c3f2e6648be33e04faf10dca, type: 2}
+  audioManager: {fileID: 0}
   transitionTime: 1
   transition: {fileID: 0}
 --- !u!114 &9030692786752223030
@@ -1606,6 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39066a4a46e25d6489f78a526b441fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SetitngsPOPUP
+  audioManager: {fileID: 0}
   mixer: {fileID: 1289315703718669743, guid: 004b7490c3f2e6648be33e04faf10dca, type: 2}
   buttonSound: {fileID: 8300000, guid: 119216a1b5e97154eb0c6e3019706f65, type: 3}
   settingsMenu: {fileID: 6970379197651114547}
