@@ -6,12 +6,12 @@ public class ReloadCooldown : StateMachineBehaviour
     {
         FindFirstObjectByType<PlayerAnimation>().coolingReload = true;
         FindFirstObjectByType<PlayerAnimation>().coolingShot = true;
-        animator.SetBool("IsShooting", true);
+        animator.SetBool("IsReloading", true);
     }
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         FindFirstObjectByType<PlayerAnimation>().coolingReload = false;
         FindFirstObjectByType<PlayerAnimation>().coolingShot = false;
-        animator.SetBool("IsShooting", false);
+        animator.SetBool("IsReloading", false);
     }
 }

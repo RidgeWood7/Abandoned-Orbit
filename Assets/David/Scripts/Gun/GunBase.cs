@@ -96,6 +96,7 @@ public abstract class GunBase : MonoBehaviour
     {
         if (context.started)
         {
+            
             StartCoroutine(ReloadCoroutine());
         }
     }
@@ -103,17 +104,18 @@ public abstract class GunBase : MonoBehaviour
     IEnumerator ReloadCoroutine()
     {
         if(playerAnimation.coolingShot) yield break;
+        audioManager.PlaySFX(audioManager.Charge);
         if (bulletsLeft < MagazineSize)
         {
             Debug.Log("Reloading...");
 
             isReloading = true;
-           
+            
 
             int oldBullets = bulletsLeft;
             for (float t = 0; t < reloadTime ; t += Time.deltaTime)
             {
-                reloadSprite.fillAmount = t / reloadTime;
+               // reloadSprite.fillAmount = t / reloadTime;
                 bulletsLeft = Mathf.RoundToInt(Mathf.Lerp(oldBullets, MagazineSize, t / reloadTime ));
 
                 yield return new WaitForEndOfFrame();
@@ -123,7 +125,7 @@ public abstract class GunBase : MonoBehaviour
             bulletsLeft = MagazineSize;
             yield return new WaitForSeconds(.3f);
 
-            reloadSprite.fillAmount = 0;
+            //reloadSprite.fillAmount = 0;
             bulletsShot = 0;
            
         }
