@@ -18,7 +18,7 @@ public class MainMenuControllerUITOOLKIT : MonoBehaviour
     public Button creditsButton;
 
     public AudioClip buttonSound;
-    public string sceneName = "Titles";
+    public string sceneName = "MainScene";
     public string creditsSceneName = "Credits";
 
     public void Awake()
