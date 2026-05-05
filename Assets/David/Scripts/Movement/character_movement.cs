@@ -10,6 +10,7 @@ public class character_movement : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
 
     public AudioManager audioManager;
+    private float walkVelocity;
 
     [HideInInspector] public CharacterController controller;
     public float jumpHeight = 2f;
@@ -52,7 +53,10 @@ public class character_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         ApplyGravity();
+
 
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
@@ -66,7 +70,12 @@ public class character_movement : MonoBehaviour
         Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
         controller.Move( moveDirection * speed * Time.deltaTime);
 
-        
+        if (moveDirection.magnitude > 0.1f)
+        {
+            new WaitForSeconds(0.5f);
+            audioManager.PlaySFX(audioManager.walk);
+        }
+
 
         velocityY += gravity * gravityMultiplier * Time.deltaTime;
         controller.Move(new Vector3(0, velocityY, 0) * Time.deltaTime);
@@ -82,6 +91,7 @@ public class character_movement : MonoBehaviour
             
 
     }
+
 
 
    

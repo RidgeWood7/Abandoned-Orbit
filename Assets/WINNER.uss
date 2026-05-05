@@ -1,0 +1,25 @@
+:root {
+}
+
+.unity-button {
+}
+
+.Default:hover {
+    background-color: rgb(0, 0, 0);
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+    height: 493px;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/EthanJKarban/Fonts/Press_Start_2P/PressStart2P-Regular.ttf?fileID=12800000&guid=3efb2cedf5b6b21459151a9a630a78ce&type=3#PressStart2P-Regular");
+    font-size: 77px;
+}
+
+.Rotate:hover {
+    transition-duration: 3s, 5s;
+    transition-property: all, rotate;
+    rotate: -360deg;
+}

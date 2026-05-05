@@ -168,7 +168,7 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   settingsMenu: {fileID: 2030984033}
   buttonSound: {fileID: 8300000, guid: 7a9693c1275acae4bb589babed7d3c9c, type: 3}
-  sceneName: Titles
+  sceneName: MainScene
   creditsSceneName: Credits
 --- !u!114 &9385407
 MonoBehaviour:

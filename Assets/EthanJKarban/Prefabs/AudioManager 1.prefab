@@ -414,5 +414,5 @@ MonoBehaviour:
   damaged: {fileID: 8300000, guid: 7b039e07c3e3f3346989ab5d05286b6e, type: 3}
   doorOpened: {fileID: 8300000, guid: 7ebda051e0a84a744b394372b8533e0f, type: 3}
   Button: {fileID: 8300000, guid: 7d950ff70b8967c438109a5c9937882a, type: 3}
-  Charge: {fileID: 8300000, guid: 98ddb50416dad7d4bb9b16462f52c75f, type: 3}
+  Charge: {fileID: 8300000, guid: b2c00aca48d3a43489fe03846c9f2f92, type: 3}
   HealAndPowerUp: {fileID: 8300000, guid: 7ef326354e21ed4479745a5812b11a74, type: 3}

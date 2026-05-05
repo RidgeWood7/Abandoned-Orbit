@@ -18,7 +18,7 @@ public class MainMenuControllerUITOOLKIT : MonoBehaviour
     public Button creditsButton;
 
     public AudioClip buttonSound;
-    public string sceneName = "Titles";
+    public string sceneName = "MainScene";
     public string creditsSceneName = "Credits";
 
     public void Awake()
@@ -45,7 +45,6 @@ public class MainMenuControllerUITOOLKIT : MonoBehaviour
 
     private void OnPlayButtonClicked()
     {
-        gameObject.SetActive(false);
         audioManager.PlaySFX(audioManager.Button);
         Time.timeScale = 1f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(sceneName);
