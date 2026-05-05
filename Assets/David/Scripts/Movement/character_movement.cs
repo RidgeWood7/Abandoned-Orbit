@@ -178,7 +178,7 @@ public class character_movement : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        audioManager.PlaySFX(audioManager.death);
+        audioManager.PlaySFX(audioManager.death);       
         Debug.Log("Player has died.");
     }
 }
