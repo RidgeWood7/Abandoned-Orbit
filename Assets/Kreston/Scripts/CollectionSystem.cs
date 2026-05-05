@@ -51,8 +51,15 @@ public class CollectionSystem : MonoBehaviour
 
     [Multiline] [SerializeField] private List<string> _tasks;
 
+    [SerializeField] private GameObject _escapePoint;
+
     #endregion
 
+    private void Start()
+    {
+        _isFindingKeycard1 = true;
+        _escapePoint.SetActive(false);
+    }
 
     private void Update()
     {
@@ -76,14 +83,21 @@ public class CollectionSystem : MonoBehaviour
 
         ui_currentTask.text = $"CURRENT TASK:\n\n{_tasks[_currentTaskNum]}";
 
-
         if (collection.Contains("Keycard1") && _currentTaskNum == 0)
         {
             _currentTaskNum++;
             ui_keycard1.enabled = true;
+            ui_wires.enabled = true;
         }
         if (collection.Contains("EscapeVisited") && _currentTaskNum == 1)
         {
+            _isFindingWires = true;
+            _isFindingPowerCell = true;
+            _isFindingFoodSupply = true;
+            _isFindingOxygenTank = true;
+            _isFindingPower = true;
+            _isFindingKeycard2 = true;
+
             _currentTaskNum++;
             ui_needPowerCell.SetActive(true);
             ui_needWires.SetActive(true);
@@ -92,14 +106,15 @@ public class CollectionSystem : MonoBehaviour
             ui_needPower.SetActive(true);
             ui_needKeycard2.SetActive(true);
         }
-        if (collection.Contains("Wrires") && collection.Contains("Keycard2") && collection.Contains("FoodSupply") && collection.Contains("OxygenTank") && collection.Contains("Power") && collection.Contains("PowerCell") && _currentTaskNum == 2)
+        if (collection.Contains("Wires") && collection.Contains("Keycard2") && collection.Contains("FoodSupply") && collection.Contains("OxygenTank") && collection.Contains("Power") && collection.Contains("PowerCell") && _currentTaskNum == 2)
         {
             _currentTaskNum++;
             ui_keycard2.enabled = true;
+            _escapePoint.SetActive(true);
         }
 
         //finish the game
-        if (collection.Contains("Wrires") && collection.Contains("Escaped") && collection.Contains("Keycard2") && collection.Contains("FoodSupply") && collection.Contains("OxygenTank") && collection.Contains("Power") && collection.Contains("PowerCell") && _currentTaskNum == 3)
+        if (collection.Contains("Wires") && collection.Contains("Escaped") && collection.Contains("Keycard2") && collection.Contains("FoodSupply") && collection.Contains("OxygenTank") && collection.Contains("Power") && collection.Contains("PowerCell") && _currentTaskNum == 3)
         {
             SceneManager.LoadScene("MainMenu");
         }
