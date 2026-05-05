@@ -6,10 +6,7 @@ public class viewBob : MonoBehaviour
 {
     public Animator animator;
 
-    public void Update()
-    {
-
-    }
+  
     public void walking(InputAction.CallbackContext context)
     {
         if (context.performed)

@@ -90,12 +90,13 @@ public class ShrimpleENEMY : MonoBehaviour
     {
        character_movement player = FindFirstObjectByType<character_movement>();
         player.TakeDamage(damage);
-        audioManager.PlaySFX(audioManager.damaged);
+        
     }   
     public void TakeDamage(float damage)
     {
-        EHealth -= damage;
         audioManager.PlaySFX(audioManager.damage);
+        EHealth -= damage;
+        
         if (EHealth <= 0)
         {
             isDead = true;
@@ -106,7 +107,7 @@ public class ShrimpleENEMY : MonoBehaviour
     void Die()
     {
         // Play death animation and/or effects here
-
+        audioManager.PlaySFX(audioManager.kill);
         Destroy(gameObject);
         
     }

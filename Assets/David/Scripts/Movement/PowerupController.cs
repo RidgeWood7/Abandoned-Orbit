@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PowerupController : MonoBehaviour
 {
+    character_movement character;
 	private PowerUpInstance player;
     public AudioManager audioManager;
 
@@ -13,6 +14,8 @@ public class PowerupController : MonoBehaviour
 
     public void AddPowerup(Powerup powerup)
 	{
+        character = FindFirstObjectByType<character_movement>();
+        character.currentHealth = character.maxHealth;
         audioManager.PlaySFX(audioManager.HealAndPowerUp);
         player.Apply(powerup);
     }
