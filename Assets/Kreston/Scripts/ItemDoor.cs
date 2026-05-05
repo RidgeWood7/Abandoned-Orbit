@@ -11,6 +11,7 @@ public class ItemDoor : MonoBehaviour
     private void Start()
     {
         _system = FindFirstObjectByType<CollectionSystem>();
+        Debug.Log("Collection System found: " + (_system != null));
     }
     #endregion
 
@@ -26,7 +27,7 @@ public class ItemDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player") && _system != null)
+        if (other.CompareTag("Player") && _system != null)
         {
             if (_system.collection.Contains(itemToOpen))
             {
