@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Xml.Serialization;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -19,13 +20,18 @@ public class PauseMenu : MonoBehaviour
 
     public void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = FindFirstObjectByType<AudioManager>();
 
 
     }
     private void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        
+    }
+
+    public void Pauseing(InputAction.CallbackContext context)
+    {
+        if(context.started)
         {
             if (GameIsPaused)
             {
@@ -37,36 +43,35 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
-        audioManager.PlaySFX(audioManager.Button);
+        //audioManager.PlaySFX(audioManager.Button);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
     void Pause()
     {
-        audioManager.PlaySFX(audioManager.Button);
+        //audioManager.PlaySFX(audioManager.Button);
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
     public void LoadMenu(string sceneName)
     {
-        audioManager.PlaySFX(audioManager.Button);
+        //audioManager.PlaySFX(audioManager.Button);
         Time.timeScale = 1f;
         FindFirstObjectByType<LevelLoaderTemplate>().LoadLevelByName(sceneName);
     }
     public void QuitGame()
     {
-        audioManager.PlaySFX(audioManager.Button);
+        //audioManager.PlaySFX(audioManager.Button);
         Debug.Log("Quitting game, bruh did you seriously click this button?");
         Application.Quit();
     }
     public void FullScreen(bool is_fullscreen)
     {
-        audioManager.PlaySFX(audioManager.Button);
+        //audioManager.PlaySFX(audioManager.Button);
         Screen.fullScreen = is_fullscreen;
     }
 }
