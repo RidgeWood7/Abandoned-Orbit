@@ -9,16 +9,19 @@ public class HealthBar : MonoBehaviour
     public Image healthBar;
     public Image[] healthPoints;
 
-    public float health, maxHealth = 100f;
+    public float health, maxHealth;
+    public character_movement playerHealth;
     public float lerpSpeed;
 
     void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<character_movement>();
     }
-    void Start()
-    {
-        health = maxHealth;
+        void Start()
+    { 
+        health = playerHealth.currentHealth;
+        maxHealth = playerHealth.maxHealth;
 
     }
 
@@ -51,20 +54,20 @@ public class HealthBar : MonoBehaviour
     {
         return ((pointNumber * 10) >= _health);
     }
-    public void Damage(float damagePoints)
+    public void Damage(float damage)
     {
         if (health > 0)
         {
             audioManager.PlaySFX(audioManager.damage);
-            health -= damagePoints;
+            health -= damage;
         }
     }
-    public void Heal(float healPoints)
+    public void Heal(float powerup)
     {
         if (health < maxHealth)
         {
             audioManager.PlaySFX(audioManager.HealAndPowerUp);
-            health += healPoints;
+            health += powerup;
         }
     }
 }
