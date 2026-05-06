@@ -15,6 +15,8 @@ public class ItemDoor : MonoBehaviour
     }
     #endregion
 
+    private bool _isOpened;
+
     public string itemToOpen;
 
     public UnityEvent onNoItem;
@@ -30,7 +32,7 @@ public class ItemDoor : MonoBehaviour
     {
         if (other.CompareTag("Player") && _system != null)
         {
-            if (_system.collection.Contains(itemToOpen))
+            if (_system.collection.Contains(itemToOpen) && !_isOpened)
             {
                 if (audioManager != null)
                 {
@@ -38,8 +40,9 @@ public class ItemDoor : MonoBehaviour
                 }
                 _animator.SetBool("DoorOpen", true); 
                 onOpen.Invoke();
+                _isOpened = true;
             }
-            else
+            else if (!_system.collection.Contains(itemToOpen))
             {
                 onNoItem.Invoke();
             }

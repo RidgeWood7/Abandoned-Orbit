@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickUp : MonoBehaviour
 {
     public List<string> item;
+
+    public UnityEvent onPickUp;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +17,7 @@ public class PickUp : MonoBehaviour
                 if (!system.collection.Contains(item))
                 {
                     system.collection.Add(item);
+                    onPickUp.Invoke();
                 }
             }
             

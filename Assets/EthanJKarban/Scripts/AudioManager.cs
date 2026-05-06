@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip background;
     public AudioClip death;
     public AudioClip fire;
-    public AudioClip walk;
     public AudioClip kill;
     public AudioClip damage;
     public AudioClip damaged;

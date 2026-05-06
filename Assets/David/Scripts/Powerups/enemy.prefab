@@ -5731,8 +5731,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.71, y: 1.22, z: -1.3936279}
-  m_LocalScale: {x: 1.06794, y: 1.06794, z: 1.06794}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4866675919735624075}
   - {fileID: 8911515405652834340}
@@ -5837,6 +5837,7 @@ MonoBehaviour:
   isDead: 0
   basedamage: 0
   oldattackCooldown: 2
+  audioManager: {fileID: 0}
   isAttacking: 0
   isMoving: 0
 --- !u!54 &3533551979257382439
@@ -5900,6 +5901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fdd5892a1cf8142a3e2c964f347dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerupController
+  audioManager: {fileID: 0}
 --- !u!95 &8873495812131658438
 Animator:
   serializedVersion: 7

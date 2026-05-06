@@ -73,7 +73,6 @@ public class character_movement : MonoBehaviour
         if (moveDirection.magnitude > 0.1f)
         {
             new WaitForSeconds(0.5f);
-            audioManager.PlaySFX(audioManager.walk);
         }
 
 
