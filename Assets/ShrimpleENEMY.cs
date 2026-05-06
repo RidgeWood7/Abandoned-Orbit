@@ -32,7 +32,7 @@ public class ShrimpleENEMY : MonoBehaviour
 
     public void Awake()
     {
-       AudioManager audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+       //AudioManager audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     void Start()
     {
@@ -45,7 +45,7 @@ public class ShrimpleENEMY : MonoBehaviour
     }
     void Update()
     {
-        AudioManager audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+       // AudioManager audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         attacking1 = isAttacking;
 
         HealthBar.value = EHealth;
@@ -97,7 +97,7 @@ public class ShrimpleENEMY : MonoBehaviour
     }   
     public void TakeDamage(float damage)
     {
-        audioManager.PlaySFX(audioManager.damage);
+        //audioManager.PlaySFX(audioManager.damage);
         EHealth -= damage;
         
         if (EHealth <= 0)
@@ -110,7 +110,7 @@ public class ShrimpleENEMY : MonoBehaviour
     void Die()
     {
         // Play death animation and/or effects here
-        audioManager.PlaySFX(audioManager.kill);
+      //  audioManager.PlaySFX(audioManager.kill);
         Destroy(gameObject);
         
     }
