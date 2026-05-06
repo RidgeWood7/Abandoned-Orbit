@@ -40,10 +40,12 @@ public class ShrimpleENEMY : MonoBehaviour
         EHealth = MaxEHealth;
          animator = GetComponent<Animator>();
         speed = agent.speed;
+        Playerpos = GameObject.FindWithTag("Player").transform;
+       
     }
     void Update()
     {
-
+        AudioManager audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         attacking1 = isAttacking;
 
         HealthBar.value = EHealth;
@@ -80,6 +82,7 @@ public class ShrimpleENEMY : MonoBehaviour
         }
         else
         {
+            animator.SetBool("IsAttacking", false);
             isAttacking = false;
         }
      

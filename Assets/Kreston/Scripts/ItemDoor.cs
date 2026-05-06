@@ -19,6 +19,7 @@ public class ItemDoor : MonoBehaviour
 
     public UnityEvent onNoItem;
     public UnityEvent onNoItemClose;
+    public UnityEvent onOpen;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class ItemDoor : MonoBehaviour
                     audioManager.PlaySFX(audioManager.doorOpened);
                 }
                 _animator.SetBool("DoorOpen", true); 
+                onOpen.Invoke();
             }
             else
             {
